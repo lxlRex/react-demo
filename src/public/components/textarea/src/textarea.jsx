@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Autosize from 'autosize'
 import './textarea.scss'
 
@@ -44,4 +45,14 @@ export default class Textarea extends React.Component {
   componentWillUnmount () {
     this.unbindAutosize()
   }
+}
+
+Textarea.propTypes = {
+  maxlength: PropTypes.number,
+  showCount: PropTypes.bool,
+  onChange: PropTypes.func
+}
+
+Textarea.defaultProps = {
+  showCount: false
 }

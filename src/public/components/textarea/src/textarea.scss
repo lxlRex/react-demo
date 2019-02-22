@@ -1,0 +1,22 @@
+@import '~SassMagic/src/mixins/BEM';
+
+@include b (c-textarea) {
+  padding: 15px; font-size: 15px;
+  background: #F7F8F9; border-radius: 6px;
+  color: #AFB3BD;
+
+  @include e (entity) {
+    border: 0; outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    display: block; resize: none !important;
+    width: 100%; color: inherit;
+    font-size: 1em;
+    line-height: inherit;
+  }
+
+  @include e (count) {
+    display: flex; justify-content: flex-end;
+    color: #AFB3BD;
+  }
+}

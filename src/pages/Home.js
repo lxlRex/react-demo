@@ -3,6 +3,7 @@ import './home.css'
 import './home.scss'
 import Button from '@public/components/button'
 import Input from '@public/components/input'
+import Textarea from '@public/components/textarea'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -42,6 +43,7 @@ export default class Home extends Component {
         <Input showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={e => this.getInput('title', e)}/>
         <input ref={input => { this.input = input }} type="text" value={this.state.title} onChange={e => this.inputChangeHandler('title', e)}/>
         <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
+        <Textarea showCount maxlength="20"/>
       </div>
     )
   }

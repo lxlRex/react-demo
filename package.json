@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "SassMagic": "https://github.com/W3cplus/SassMagic.git",
+    "autosize": "^4.0.2",
     "element-react": "^1.4.32",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",

@@ -7,7 +7,7 @@ export default class Textarea extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      count: 0
+      count: this.props.value.length || 0
     }
   }
 
@@ -31,6 +31,7 @@ export default class Textarea extends React.Component {
         <textarea className="c-textarea__entity" ref={textarea => (this.textarea = textarea)}
           value={this.props.value}
           maxLength={this.props.maxlength}
+          placeholder={this.props.placeholder}
           onChange={this.changeHandler.bind(this)}
         />
         { (this.props.showCount && this.props.maxlength) && <div className="c-textarea__count">{this.state.count}/{this.props.maxlength}</div> }
@@ -48,11 +49,17 @@ export default class Textarea extends React.Component {
 }
 
 Textarea.propTypes = {
-  maxlength: PropTypes.number,
+  maxlength: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   showCount: PropTypes.bool,
+  placeholder: PropTypes.string,
   onChange: PropTypes.func
 }
 
 Textarea.defaultProps = {
-  showCount: false
+  showCount: false,
+  placeholder: '请输入',
+  value: ''
 }

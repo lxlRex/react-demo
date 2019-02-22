@@ -18,13 +18,20 @@ export default class Textarea extends React.Component {
 
   changeHandler (e) {
     this.updateAutoSize()
+    this.setState({
+      count: e.target.value.length
+    })
     this.props.onChange && this.props.onChange(e)
   }
 
   render () {
     return (
       <div className="c-textarea">
-        <textarea className="c-textarea__entity" ref={textarea => (this.textarea = textarea)} onChange={this.changeHandler.bind(this, event)}/>
+        <textarea className="c-textarea__entity" ref={textarea => (this.textarea = textarea)}
+          value={this.props.value}
+          maxLength={this.props.maxlength}
+          onChange={this.changeHandler.bind(this)}
+        />
         { (this.props.showCount && this.props.maxlength) && <div className="c-textarea__count">{this.state.count}/{this.props.maxlength}</div> }
       </div>
     )

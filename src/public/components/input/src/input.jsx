@@ -44,7 +44,7 @@ export default class Input extends React.Component {
             placeholder={this.props.placeholder}
             onFocus={this.focusHandler.bind(this)}
             onBlur={this.blurHandler.bind(this)}
-            onChange={this.changeHandler.bind(this, event)}
+            onChange={this.changeHandler.bind(this)}
           />
           { this.props.showClear && <div className={`c-input__clear ${this.clearIcon()}`} onClick={this.clearHandler.bind(this)}/> }
         </div>

@@ -20,7 +20,9 @@ export default class Input extends React.Component {
   }
 
   blurHandler () {
-    this.setState({ isFocus: false })
+    setTimeout(() => {
+      this.setState({ isFocus: false })
+    }, 0)
   }
 
   clearHandler () {
@@ -28,20 +30,24 @@ export default class Input extends React.Component {
   }
 
   clearIcon () {
-    return this.props.value.length > 0 && this.state.isFocus ? '' : 'c-input__clear--hide'
+    return this.props.showClear && this.props.value.length > 0 && this.state.isFocus ? '' : 'c-input__clear--hide'
   }
 
   render () {
     return (
       <div className="c-input">
-        <input className="c-input__entity"
-          type={this.props.type}
-          value={this.props.value}
-          onFocus={this.focusHandler.bind(this)}
-          onBlur={this.blurHandler.bind(this)}
-          onChange={this.changeHandler.bind(this, event)}
-        />
-        { this.props.showClear && <div className={`c-input__clear ${this.clearIcon()}`} onClick={this.clearHandler.bind(this)}/> }
+        { this.props.label && <div className="c-input__left">{this.props.label}</div> }
+        <div className="c-input__right">
+          <input className="c-input__entity"
+            type={this.props.type}
+            value={this.props.value}
+            placeholder={this.props.placeholder}
+            onFocus={this.focusHandler.bind(this)}
+            onBlur={this.blurHandler.bind(this)}
+            onChange={this.changeHandler.bind(this, event)}
+          />
+          { this.props.showClear && <div className={`c-input__clear ${this.clearIcon()}`} onClick={this.clearHandler.bind(this)}/> }
+        </div>
       </div>
     )
   }
@@ -54,10 +60,12 @@ Input.propTypes = {
       return new Error('Invalid prop `' + propName + '` supplied to' +
         ' `' + componentName + '`. Validation failed.')
     }
-  }
+  },
+  placeholder: PropTypes.string
 }
 
 Input.defaultProps = {
   showClear: false,
-  type: 'text'
+  type: 'text',
+  placeholder: '请输入'
 }

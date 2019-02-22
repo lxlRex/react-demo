@@ -3,26 +3,42 @@
 $iconSize: 20px;
 
 @include b (c-input) {
-  height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 16px;
+  padding: 0 10px;
+
+  @include e (left) {
+    padding-right: 10px;
+
+    & + .c-input__right {
+      text-align: right;
+    }
+  }
+
+  @include e (right) {
+    flex: 1;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
 
   @include e (entity) {
     border: 0;
     outline: 0;
     width: 100%;
+    text-align: inherit;
   }
 
   @include e (clear) {
     width: $iconSize; height: $iconSize;
     background: url("../assets/clear-icon.svg") no-repeat center center;
     background-size: 100% 100%;
-    padding: 0 10px;
+    margin-left: 10px;
 
     @include m (hide) {
-      //display: none;
-      opacity: 0;
+      display: none;
     }
   }
 }

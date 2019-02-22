@@ -39,7 +39,7 @@ export default class Home extends Component {
         <div className="home__text">
           this is home~123
         </div>
-        <Input showClear type="text" value={this.state.title} onChange={e => this.getInput('title', e)}/>
+        <Input showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={e => this.getInput('title', e)}/>
         <input ref={input => { this.input = input }} type="text" value={this.state.title} onChange={e => this.inputChangeHandler('title', e)}/>
         <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
       </div>

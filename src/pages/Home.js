@@ -10,7 +10,8 @@ export default class Home extends Component {
   constructor () {
     super()
     this.state = {
-      title: 'hello world'
+      title: 'hello world',
+      desc: '12312'
     }
   }
 
@@ -21,16 +22,8 @@ export default class Home extends Component {
     console.log(this.input.value)
   }
 
-  inputChangeHandler (term, e) {
-    let obj = {}
-    obj[term] = e.target.value
-    this.setState(obj)
-  }
-
-  getInput (term, val) {
-    let obj = {}
-    obj[term] = val
-    this.setState(obj)
+  inputChangeHandler (e) {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render () {
@@ -40,10 +33,10 @@ export default class Home extends Component {
         <div className="home__text">
           this is home~123
         </div>
-        <Input showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={e => this.getInput('title', e)}/>
-        <input ref={input => { this.input = input }} type="text" value={this.state.title} onChange={e => this.inputChangeHandler('title', e)}/>
+        <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
+        <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
-        <Textarea value={this.state.title} onChange={e => this.inputChangeHandler('title', e)} showCount maxlength="20"/>
+        <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
       </div>
     )
   }

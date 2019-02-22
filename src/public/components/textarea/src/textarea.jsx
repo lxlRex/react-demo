@@ -30,6 +30,7 @@ export default class Textarea extends React.Component {
       <div className="c-textarea">
         <textarea className="c-textarea__entity" ref={textarea => (this.textarea = textarea)}
           value={this.props.value}
+          name={this.props.name}
           maxLength={this.props.maxlength}
           placeholder={this.props.placeholder}
           onChange={this.changeHandler.bind(this)}

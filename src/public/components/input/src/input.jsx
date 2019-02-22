@@ -12,7 +12,7 @@ export default class Input extends React.Component {
   }
 
   changeHandler (e) {
-    this.props.onChange && this.props.onChange(e.target.value)
+    this.props.onChange && this.props.onChange(e)
   }
 
   focusHandler () {
@@ -26,7 +26,7 @@ export default class Input extends React.Component {
   }
 
   clearHandler () {
-    this.props.value && this.props.onChange && this.props.onChange('')
+    this.props.value && this.props.onChange && this.props.onChange({ target: { name: this.props.name, value: '' } })
   }
 
   clearIcon () {
@@ -41,6 +41,7 @@ export default class Input extends React.Component {
           <input className="c-input__entity"
             type={this.props.type}
             value={this.props.value}
+            name={this.props.name}
             placeholder={this.props.placeholder}
             onFocus={this.focusHandler.bind(this)}
             onBlur={this.blurHandler.bind(this)}

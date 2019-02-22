@@ -1,0 +1,23 @@
+@import '~SassMagic/src/mixins/BEM';
+
+$iconSize: 20px;
+
+@include b (c-input) {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+
+  @include e (entity) {
+    border: 0;
+    outline: 0;
+    width: 100%;
+  }
+
+  @include e (clear) {
+    width: $iconSize; height: $iconSize;
+    background: url("../assets/clear-icon.svg") no-repeat center center;
+    background-size: 100% 100%;
+    padding: 0 10px;
+  }
+}

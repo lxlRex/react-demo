@@ -34,10 +34,12 @@ export default class Mask extends React.Component {
 Mask.propTypes = {
   show: PropTypes.bool,
   display: PropTypes.bool,
+  scroll: PropTypes.bool,
   maskClick: PropTypes.func
 }
 
 Mask.defaultProps = {
   show: false,
-  display: true
+  display: true,
+  scroll: false
 }

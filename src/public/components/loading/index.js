@@ -6,7 +6,7 @@ const containerClassName = 'loading-container'
 
 let instance = null
 
-function creatLoading () {
+function createLoading () {
   let container = document.createElement('div')
   container.className = containerClassName
   document.body.appendChild(container)
@@ -18,7 +18,7 @@ function creatLoading () {
 }
 
 export function showLoading () {
-  if (!instance) creatLoading()
+  if (!instance) createLoading()
 
   instance.setState({ show: true })
 }

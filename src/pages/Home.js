@@ -4,7 +4,7 @@ import './home.scss'
 import Button from '@public/components/button'
 import Input from '@public/components/input'
 import Textarea from '@public/components/textarea'
-import Loading, { show, hide } from '@public/components/loading'
+import Loading, { showLoading, hideLoading } from '@public/components/loading'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -20,12 +20,14 @@ export default class Home extends Component {
   }
 
   buttonClickHandler () {
-    hide()
+    hideLoading()
     console.log(this.input.value)
   }
 
   buttonClickHandler2 () {
-    show()
+    showLoading()
+
+    setTimeout(hideLoading, 10000)
   }
 
   inputChangeHandler (e) {
@@ -36,9 +38,6 @@ export default class Home extends Component {
     return (
       <div className="home">
         {this.state.title}
-        <div className="home__text">
-          this is home~123
-        </div>
         <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>

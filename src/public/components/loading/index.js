@@ -15,16 +15,15 @@ function creatLoading () {
     <Loading/>,
     document.querySelector(`.${containerClassName}`)
   )
-  console.log(instance)
 }
 
-export function show () {
+export function showLoading () {
   if (!instance) creatLoading()
 
   instance.setState({ show: true })
 }
 
-export function hide () {
+export function hideLoading () {
   instance && instance.setState({ show: false })
 }
 

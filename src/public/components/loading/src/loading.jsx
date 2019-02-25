@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import Mask from '../../mask'
 import './loading.scss'
 
 export default class Loading extends React.Component {
@@ -20,17 +20,11 @@ export default class Loading extends React.Component {
 
   render () {
     return (
-      <div className={ this.state.show ? 'loading loading--show' : 'loading' }>
-        <em className="loading__img"/>
-      </div>
+      <Mask show={this.state.show} display={false}>
+        <div className="loading">
+          <em className="loading__img"/>
+        </div>
+      </Mask>
     )
   }
-}
-
-Loading.propTypes = {
-  show: PropTypes.bool
-}
-
-Loading.defaultTypes = {
-  show: false
 }

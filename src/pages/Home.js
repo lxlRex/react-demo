@@ -6,6 +6,7 @@ import Input from '@public/components/input'
 import Textarea from '@public/components/textarea'
 import Loading, { showLoading, hideLoading } from '@public/components/loading'
 // import { Button } from 'element-react'
+import moment from 'moment'
 
 export default class Home extends Component {
   constructor () {
@@ -48,6 +49,7 @@ export default class Home extends Component {
   }
 
   componentDidMount () {
+    alert(moment('2015-01-02'))
   }
 
   componentWillUpdate () {

@@ -24,6 +24,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // 配置webpakc开发服务功能
   devServer: {
+    host: config.dev.host,
+    port: config.dev.port,
     compress: true,
     historyApiFallback: true,
     hot: true,

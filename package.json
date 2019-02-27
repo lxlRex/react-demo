@@ -19,6 +19,7 @@
     "antd": "^3.13.5",
     "autosize": "^4.0.2",
     "element-react": "^1.4.32",
+    "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",

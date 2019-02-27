@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Loading from './src/loading.jsx'
+import Component from './src/loading.jsx'
 
 const containerClassName = 'loading-container'
 
@@ -12,19 +12,19 @@ function createLoading () {
   document.body.appendChild(container)
 
   instance = ReactDOM.render(
-    <Loading/>,
+    <Component/>,
     document.querySelector(`.${containerClassName}`)
   )
 }
 
-export function showLoading () {
-  if (!instance) createLoading()
+export default class Loading {
+  static show () {
+    if (!instance) createLoading()
 
-  instance.setState({ show: true })
+    instance.setState({ show: true })
+  }
+
+  static hide () {
+    instance && instance.setState({ show: false })
+  }
 }
-
-export function hideLoading () {
-  instance && instance.setState({ show: false })
-}
-
-export { default } from './src/loading.jsx'

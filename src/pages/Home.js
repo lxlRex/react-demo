@@ -6,6 +6,7 @@ import Input from '@public/components/input'
 import Textarea from '@public/components/textarea'
 import Loading from '@public/components/loading'
 import MessageBox from '@public/components/messageBox'
+import Toast from '@public/components/toast'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -56,6 +57,12 @@ export default class Home extends Component {
     })
   }
 
+  toasthandler () {
+    Toast.show('qqqweqwqewqweqasdf').then(() => {
+      console.log('hide toast')
+    })
+  }
+
   render () {
     return (
       <div className="home">
@@ -66,6 +73,7 @@ export default class Home extends Component {
         <Button onClick={this.buttonClickHandler2.bind(this)}>showLoading</Button>
         <Button onClick={this.alertHandler.bind(this)}>alert</Button>
         <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
+        <Button onClick={this.toasthandler.bind(this)}>toast</Button>
         <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
       </div>
     )

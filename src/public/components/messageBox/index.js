@@ -20,6 +20,12 @@ function createMessageBox ({ type }) {
 }
 
 export default class MessageBox {
+  /**
+   * @desc alert
+   * @param {string} msg message
+   * @param {string} btnText button text
+   * @return {Promise<any>}
+   */
   static alert ({ msg, btnText }) {
     return new Promise(resolve => {
       let type = 'alert'

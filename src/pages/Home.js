@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import './home.css'
 import './home.scss'
-import Button from '@public/components/button'
-import Input from '@public/components/input'
-import Textarea from '@public/components/textarea'
-import Loading from '@public/components/loading'
-import MessageBox from '@public/components/messageBox'
-import Toast from '@public/components/toast'
+import Button from '@public/components/src/button'
+import Input from '@public/components/src/input'
+import Textarea from '@public/components/src/textarea'
+import Loading from '@public/components/src/loading'
+import MessageBox from '@public/components/src/messageBox'
+import Toast from '@public/components/src/toast'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
-  constructor () {
-    super()
-    this.state = {
-      title: 'hello world',
-      desc: '12312'
-    }
+  state = {
+    title: 'hello world',
+    desc: '12312'
+  }
+
+  constructor (props) {
+    super(props)
   }
 
   componentWillMount () {
@@ -80,6 +81,7 @@ export default class Home extends Component {
   }
 
   componentDidMount () {
+    console.log(this)
   }
 
   componentWillUpdate () {

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 import Mask from '../../mask'
 import './messageBox.scss'
@@ -43,12 +44,7 @@ export default class MessageBox extends React.Component {
 }
 
 MessageBox.propTypes = {
-  type: (props, propName, componentName) => {
-    if (['alert', 'confirm'].indexOf(props[propName]) < 0) {
-      return new Error('Invalid prop `' + propName + '` supplied to' +
-        ' `' + componentName + '`. Validation failed.')
-    }
-  }
+  type: PropTypes.oneOf(['alert', 'confirm'])
 }
 
 MessageBox.defaultProps = {

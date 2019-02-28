@@ -8,13 +8,21 @@ import Loading from '@public/components/src/loading'
 import MessageBox from '@public/components/src/messageBox'
 import Toast from '@public/components/src/toast'
 import ImageUploader from '@public/components/src/image-uploader'
+import Checkbox from '@public/components/src/checkbox'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
   state = {
     title: 'hello world',
     desc: '12312',
-    images: ''
+    images: '',
+    options: [
+      { label: '汉字', value: 1 },
+      { label: '汉字1', value: 2 },
+      { label: '汉字2', value: 3 },
+      { label: '汉字3', value: 4 }
+    ],
+    checkbox: [1, 2]
   }
 
   componentWillMount () {
@@ -79,6 +87,7 @@ export default class Home extends Component {
         <Button onClick={this.toasthandler.bind(this)}>toast</Button>
         <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
         <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
+        <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
       </div>
     )
   }

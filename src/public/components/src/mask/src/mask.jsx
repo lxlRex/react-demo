@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './mask.scss'
-import uuid from '../../../utils/uuid'
 
 export default class Mask extends React.Component {
-
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
   }

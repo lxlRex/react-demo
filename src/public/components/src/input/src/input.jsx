@@ -53,12 +53,7 @@ export default class Input extends React.Component {
 
 Input.propTypes = {
   showClear: PropTypes.bool,
-  type: (props, propName, componentName) => {
-    if (['text', 'number', 'tel', 'password'].indexOf(props[propName]) < 0) {
-      return new Error('Invalid prop `' + propName + '` supplied to' +
-        ' `' + componentName + '`. Validation failed.')
-    }
-  },
+  type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
   placeholder: PropTypes.string
 }
 

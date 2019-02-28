@@ -6,7 +6,7 @@ export default class Checkbox extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      options: this.props.options.map((e) => {
+      options: this.props.options.map(e => {
         return {
           ...e,
           checked: this.props.value.indexOf(e.value) > -1

@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './mask.scss'
+import uuid from '../../../utils/uuid'
 
 export default class Mask extends React.Component {
+
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
   }
@@ -18,11 +20,20 @@ export default class Mask extends React.Component {
   render () {
     return (
       <div className={this.getClassName()}
+        ref={mask => { this.mask = mask }}
         onClick={this.clickHandler.bind(this)}
-        onTouchMove={this.touchmoveHandler.bind(this)}>
+      >
         {this.props.children}
       </div>
     )
+  }
+
+  componentDidMount () {
+    this.mask.addEventListener('touchmove', this.touchmoveHandler.bind(this), { passive: false })
+  }
+
+  componentWillUnmount () {
+    this.mask.removeEventListener('touchmove', this.touchmoveHandler.bind(this))
   }
 }
 

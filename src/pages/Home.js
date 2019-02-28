@@ -68,7 +68,7 @@ export default class Home extends Component {
 
   render () {
     return (
-      <div className="home">
+      <div className="home" style={{ paddingBottom: '200px' }}>
         {this.state.title}
         <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>

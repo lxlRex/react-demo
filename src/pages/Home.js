@@ -56,6 +56,10 @@ export default class Home extends Component {
     })
   }
 
+  getImages (value) {
+    console.log(value)
+  }
+
   toasthandler () {
     Toast.show('qqqweqwqewqweqasdf').then(() => {
       console.log('hide toast')
@@ -74,7 +78,7 @@ export default class Home extends Component {
         <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
         <Button onClick={this.toasthandler.bind(this)}>toast</Button>
         <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
-        <ImageUploader value={this.state.images}/>
+        <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
       </div>
     )
   }

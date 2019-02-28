@@ -15,8 +15,9 @@ export default class ImageUploader extends React.Component {
   }
 
   removeHandler (index) {
-    this.setState({ innerValue: this.state.innerValue.filter((o, i) => i !== index) })
-    this.props.onChange && this.props.onChange(this.state.innerValue)
+    let newData = this.state.innerValue.filter((o, i) => i !== index)
+    this.setState({ innerValue: newData })
+    this.props.onChange && this.props.onChange(newData)
   }
 
   async changeHandler (e) {
@@ -28,15 +29,17 @@ export default class ImageUploader extends React.Component {
     compressFiles.forEach(async ({ compressFile, name }) => {
       let fd = new FormData()
       fd.append('imgFile', compressFile, name)
-      let { data: { data } } = await axios.post('//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do', fd)
+      let { data: { data } } = await axios.post(this.props.url, fd)
+
+      let newData = [].concat(this.state.innerValue, data)
       this.setState({
-        innerValue: [].concat(this.state.innerValue, data)
+        innerValue: newData
       })
+
+      this.props.onChange && this.props.onChange(newData)
     })
 
     e.target.value = null
-
-    this.props.onChange && this.props.onChange(this.state.innerValue)
   }
 
   render () {
@@ -85,5 +88,9 @@ ImageUploader.propTypes = {
 }
 
 ImageUploader.defaultProps = {
-  size: 8
+  value: [],
+  prompt: '上传图片',
+  size: 8,
+  url: '//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do',
+  multiple: false
 }

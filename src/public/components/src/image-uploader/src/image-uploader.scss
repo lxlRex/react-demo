@@ -1,6 +1,6 @@
 @import '~SassMagic/src/mixins/BEM';
 
-$imagesize: 100px;
+$imagesize: 90px;
 
 $remove_width: 20px;
 $remove_height: 2px;
@@ -9,6 +9,7 @@ $remove_color: #fff;
 
 @include b (image-choice) {
   display: flex;
+  flex-wrap: wrap;
 
   @include e (item) {
     flex-basis: $imagesize;

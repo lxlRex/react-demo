@@ -7,16 +7,14 @@ import Textarea from '@public/components/src/textarea'
 import Loading from '@public/components/src/loading'
 import MessageBox from '@public/components/src/messageBox'
 import Toast from '@public/components/src/toast'
+import ImageUploader from '@public/components/src/image-uploader'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
   state = {
     title: 'hello world',
-    desc: '12312'
-  }
-
-  constructor (props) {
-    super(props)
+    desc: '12312',
+    images: ''
   }
 
   componentWillMount () {
@@ -76,6 +74,7 @@ export default class Home extends Component {
         <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
         <Button onClick={this.toasthandler.bind(this)}>toast</Button>
         <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
+        <ImageUploader value={this.state.images}/>
       </div>
     )
   }

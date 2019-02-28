@@ -18,6 +18,7 @@
     "SassMagic": "https://github.com/W3cplus/SassMagic.git",
     "antd": "^3.13.5",
     "autosize": "^4.0.2",
+    "axios": "^0.18.0",
     "element-react": "^1.4.32",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",

@@ -3,11 +3,6 @@ import PropTypes from 'prop-types'
 import './mask.scss'
 
 export default class Mask extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {}
-  }
-
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
   }

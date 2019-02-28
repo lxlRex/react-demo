@@ -2,12 +2,9 @@ import React from 'react'
 import './toast.scss'
 
 export default class Toast extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      show: false,
-      msg: ''
-    }
+  state = {
+    show: false,
+    msg: ''
   }
 
   getClassname () {

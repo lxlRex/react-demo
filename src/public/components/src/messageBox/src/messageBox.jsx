@@ -4,16 +4,13 @@ import Mask from '../../mask'
 import './messageBox.scss'
 
 export default class MessageBox extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      show: true,
-      msg: 'alert',
-      cancelBtn: '取消',
-      confirmBtn: '确定',
-      confirm: noop,
-      cancel: noop
-    }
+  state = {
+    show: true,
+    msg: 'alert',
+    cancelBtn: '取消',
+    confirmBtn: '确定',
+    confirm: noop,
+    cancel: noop
   }
 
   cancelHandler () {

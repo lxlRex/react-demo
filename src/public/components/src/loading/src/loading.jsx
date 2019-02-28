@@ -3,20 +3,9 @@ import Mask from '../../mask'
 import './loading.scss'
 
 export default class Loading extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      show: false
-    }
+  state = {
+    show: false
   }
-  //
-  // showLoading () {
-  //   this.setState({ show: true })
-  // }
-  //
-  // hideLoading () {
-  //   this.setState({ show: false })
-  // }
 
   render () {
     return (

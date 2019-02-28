@@ -3,12 +3,9 @@ import PropTypes from 'prop-types'
 import './input.scss'
 
 export default class Input extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      clearShow: false,
-      isFocus: false
-    }
+  state = {
+    clearShow: false,
+    isFocus: false
   }
 
   changeHandler (e) {

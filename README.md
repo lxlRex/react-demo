@@ -17,3 +17,6 @@ mask
 textarea
 messageBox
 toast
+checkbox
+radio
+image-uploader

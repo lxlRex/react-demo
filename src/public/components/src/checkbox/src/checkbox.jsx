@@ -25,7 +25,7 @@ export default class Checkbox extends React.Component {
   }
 
   getClassName (checked) {
-    return `c-checkbox__item ${checked ? ' c-checkbox__item--checked' : ''}`
+    return `c-checkbox__item ${checked ? 'c-checkbox__item--checked' : ''}`
   }
 
   render () {

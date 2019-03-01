@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import './home.css'
-import './home.scss'
 import Button from '@public/components/src/button'
 import Input from '@public/components/src/input'
 import Textarea from '@public/components/src/textarea'

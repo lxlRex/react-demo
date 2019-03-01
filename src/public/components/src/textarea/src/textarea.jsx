@@ -7,7 +7,7 @@ export default class Textarea extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      count: this.props.value.length || 0
+      count: props.value.length || 0
     }
   }
 

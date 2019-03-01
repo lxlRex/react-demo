@@ -9,7 +9,7 @@ export default class ImageUploader extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      innerValue: Array.isArray(this.props.value) ? this.props.value : this.props.value ? [this.props.value] : [],
+      innerValue: Array.isArray(props.value) ? props.value : props.value ? [props.value] : [],
       uid: uuid()
     }
   }

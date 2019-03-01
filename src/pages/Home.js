@@ -7,6 +7,7 @@ import MessageBox from '@public/components/src/messageBox'
 import Toast from '@public/components/src/toast'
 import ImageUploader from '@public/components/src/image-uploader'
 import Checkbox from '@public/components/src/checkbox'
+import Radio from '@public/components/src/radio'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -20,7 +21,8 @@ export default class Home extends Component {
       { label: '汉字2', value: 3 },
       { label: '汉字3', value: 4 }
     ],
-    checkbox: [1, 2]
+    checkbox: [1, 2],
+    radio: 1
   }
 
   componentWillMount () {
@@ -84,8 +86,10 @@ export default class Home extends Component {
         <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
         <Button onClick={this.toasthandler.bind(this)}>toast</Button>
         <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
+        <div style={{ marginBottom: '30px' }}></div>
         <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
         <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
+        <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
       </div>
     )
   }

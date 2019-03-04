@@ -10,6 +10,7 @@ import Checkbox from '@public/components/src/checkbox'
 import Radio from '@public/components/src/radio'
 import Countdown from '@public/components/src/countdown'
 import Checker from '@public/components/src/checker'
+import { Select, Option } from '@public/components/src/select'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -101,6 +102,13 @@ export default class Home extends Component {
         </Countdown>
         <Button onClick={this.start.bind(this)}>start</Button>
         <Checker value={this.state.start} onChange={val => { this.setState({ start: val }) }}/>
+        <Select>
+          {
+            this.state.options.map(({ label, value }, index) => {
+              return <Option label={label} value={value} key={index} />
+            })
+          }
+        </Select>
       </div>
     )
   }

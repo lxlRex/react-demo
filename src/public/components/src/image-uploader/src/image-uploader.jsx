@@ -29,7 +29,7 @@ export default class ImageUploader extends React.Component {
     compressFiles.forEach(async ({ compressFile, name }) => {
       let fd = new FormData()
       fd.append('imgFile', compressFile, name)
-      let { data: { data } } = await axios.post(this.props.url, fd)
+      let { data: { data } } = await axios.post(this.props.action, fd)
 
       let newData = [].concat(this.state.innerValue, data)
       this.setState({
@@ -84,13 +84,13 @@ ImageUploader.propTypes = {
   multiple: PropTypes.bool,
   size: PropTypes.number,
   onChange: PropTypes.func,
-  url: PropTypes.string
+  action: PropTypes.string
 }
 
 ImageUploader.defaultProps = {
   value: [],
   prompt: '上传图片',
   size: 8,
-  url: '//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do',
+  action: '//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do',
   multiple: false
 }

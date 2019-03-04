@@ -23,7 +23,8 @@ export default class Home extends Component {
       { label: '汉字3', value: 4 }
     ],
     checkbox: [1, 2],
-    radio: 1
+    radio: 1,
+    start: false
   }
 
   componentWillMount () {
@@ -75,12 +76,11 @@ export default class Home extends Component {
     })
   }
 
+  start () {
+    this.setState({ start: true })
+  }
+
   render () {
-    const Count = ({ column }) => {
-      return (
-        <div>{column}</div>
-      )
-    }
     return (
       <div className="home" style={{ paddingBottom: '200px' }}>
         <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
@@ -95,9 +95,10 @@ export default class Home extends Component {
         <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
         <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
         <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
-        <Countdown>
-          <Count></Count>
+        <Countdown start={this.state.start} time={6}>
+          { ({ currentTime, isFinish }) => <div>{isFinish ? 'finish' : currentTime}</div> }
         </Countdown>
+        <Button onClick={this.start.bind(this)}>start</Button>
       </div>
     )
   }

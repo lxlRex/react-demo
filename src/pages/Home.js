@@ -9,6 +9,7 @@ import ImageUploader from '@public/components/src/image-uploader'
 import Checkbox from '@public/components/src/checkbox'
 import Radio from '@public/components/src/radio'
 import Countdown from '@public/components/src/countdown'
+import Checker from '@public/components/src/checker'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -99,6 +100,7 @@ export default class Home extends Component {
           { ({ currentTime, isFinish }) => <div>{isFinish ? 'finish' : currentTime}</div> }
         </Countdown>
         <Button onClick={this.start.bind(this)}>start</Button>
+        <Checker value={this.state.start} onChange={val => { this.setState({ start: val }) }}/>
       </div>
     )
   }

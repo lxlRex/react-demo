@@ -16,21 +16,27 @@ export default class Countdown extends React.Component {
           currentTime: this.state.currentTime - 1
         })
       } else {
-        clearInterval(interval)
-        this.setState({
-          isFinish: true
-        })
+        this.finishCountdown()
       }
     }, 1000)
   }
 
+  finishCountdown () {
+    clearInterval(interval)
+    this.setState({
+      isFinish: true
+    })
+  }
+
   componentWillReceiveProps (props) {
-    if (props.start) {
+    if (props.start && this.state.isFinish) {
       this.setState({
         currentTime: props.time,
         isFinish: false
       })
       this.countdown()
+    } else {
+      this.finishCountdown()
     }
   }
 

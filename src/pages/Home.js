@@ -8,6 +8,7 @@ import Toast from '@public/components/src/toast'
 import ImageUploader from '@public/components/src/image-uploader'
 import Checkbox from '@public/components/src/checkbox'
 import Radio from '@public/components/src/radio'
+import Countdown from '@public/components/src/countdown'
 // import { Button } from 'element-react'
 
 export default class Home extends Component {
@@ -75,9 +76,13 @@ export default class Home extends Component {
   }
 
   render () {
+    const Count = ({ column }) => {
+      return (
+        <div>{column}</div>
+      )
+    }
     return (
       <div className="home" style={{ paddingBottom: '200px' }}>
-        {this.state.title}
         <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
@@ -86,10 +91,13 @@ export default class Home extends Component {
         <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
         <Button onClick={this.toasthandler.bind(this)}>toast</Button>
         <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
-        <div style={{ marginBottom: '30px' }}></div>
+        <div style={{ marginBottom: '30px' }}/>
         <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
         <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
         <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
+        <Countdown>
+          <Count></Count>
+        </Countdown>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import './radio.scss'
 
@@ -27,17 +28,13 @@ export default class Radio extends React.Component {
     this.props.onChange && this.props.onChange(newOptions[index].value)
   }
 
-  getClassName (checked) {
-    return `c-radio__item ${checked ? 'c-radio__item--checked' : ''}`
-  }
-
   render () {
     return (
       <div className="c-radio">
         {
           this.state.options.map(({ label, checked }, index) => {
             return (
-              <div className={this.getClassName(checked)} key={index} onClick={this.clickHandler.bind(this, index)}>{label}</div>
+              <div className={classNames('c-radio__item', { 'c-radio__item--checked': checked })} key={index} onClick={this.clickHandler.bind(this, index)}>{label}</div>
             )
           })
         }

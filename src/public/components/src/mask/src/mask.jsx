@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import './mask.scss'
 
@@ -11,13 +12,9 @@ export default class Mask extends React.Component {
     if (!this.props.scroll) e.preventDefault()
   }
 
-  getClassName () {
-    return `c-mask${this.props.display ? ' c-mask--display' : ''}${this.props.show ? '' : ' c-mask--hide'}`
-  }
-
   render () {
     return (
-      <div className={this.getClassName()}
+      <div className={classNames('c-mask', { 'c-mask--display': this.props.display, 'c-mask--hide': !this.props.show })}
         ref={mask => { this.mask = mask }}
         onClick={this.clickHandler.bind(this)}
       >

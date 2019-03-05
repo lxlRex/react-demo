@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import './checkbox.scss'
 
@@ -32,17 +33,13 @@ export default class Checkbox extends React.Component {
     // })
   }
 
-  getClassName (checked) {
-    return `c-checkbox__item ${checked ? 'c-checkbox__item--checked' : ''}`
-  }
-
   render () {
     return (
       <div className="c-checkbox">
         {
           this.state.options.map(({ label, checked }, index) => {
             return (
-              <div className={this.getClassName(checked)} key={index} onClick={this.clickHandler.bind(this, index)}>{label}</div>
+              <div className={classNames('c-checkbox__item', { 'c-checkbox__item--checked': checked })} key={index} onClick={this.clickHandler.bind(this, index)}>{label}</div>
             )
           })
         }

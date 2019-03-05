@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import './button.scss'
 
@@ -8,13 +9,9 @@ export default class Button extends Component {
     this.props.onClick && this.props.onClick()
   }
 
-  getClassName () {
-    return `c-button${this.props.disabled ? ' c-button--disabled' : ''}`
-  }
-
   render () {
     return (
-      <div className={this.getClassName()} onClick={this.clickHandler.bind(this)}>
+      <div className={classNames('c-button', { 'c-button--disabled': this.props.disabled })} onClick={this.clickHandler.bind(this)}>
         {this.props.children}
       </div>
     )

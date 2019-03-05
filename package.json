@@ -8,12 +8,6 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
     "build": "node build/build.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://gitee.com/lxlyzzg/react-demo.git"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "SassMagic": "https://github.com/W3cplus/SassMagic.git",
     "antd": "^3.13.5",
@@ -42,6 +36,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "bundle-loader": "^0.5.6",
+    "chalk": "^2.0.1",
     "css-loader": "^2.1.0",
     "eslint": "^5.8.0",
     "eslint-config-standard": "^12.0.0",
@@ -62,6 +57,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-px2rem-exclude": "^0.0.6",
     "sass-loader": "^7.1.0",
+    "semver": "^5.3.0",
     "shelljs": "^0.8.3",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",

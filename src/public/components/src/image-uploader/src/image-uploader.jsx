@@ -10,7 +10,7 @@ export default class ImageUploader extends React.Component {
     super(props)
     this.state = {
       innerValue: Array.isArray(props.value) ? props.value : props.value ? [props.value] : [],
-      uid: uuid()
+      uid: 'image-choice-' + uuid()
     }
   }
 
@@ -59,12 +59,12 @@ export default class ImageUploader extends React.Component {
         {
           this.state.innerValue.length < this.props.size &&
           <div className="image-choice__item image-choice__item--add">
-            <input id={`image-choice-${this.state.uid}`} type="file" accept="image/*"
+            <input id={this.state.uid} type="file" accept="image/*"
               size={this.props.size}
               multiple={this.props.multiple}
               onChange={this.changeHandler.bind(this)}
             />
-            <label htmlFor={`image-choice-${this.state.uid}`}>
+            <label htmlFor={this.state.uid}>
               <div className="image-choice__icon">+</div>
               <div className="image-choice__prompt">{this.props.prompt}</div>
             </label>

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import className from 'classnames'
 import './input.scss'
 
 export default class Input extends React.Component {
@@ -44,7 +45,12 @@ export default class Input extends React.Component {
             onBlur={this.blurHandler.bind(this)}
             onChange={this.changeHandler.bind(this)}
           />
-          { this.props.showClear && <div className={`c-input__clear ${this.clearIcon()}`} onClick={this.clearHandler.bind(this)}/> }
+          { this.props.showClear &&
+            <div
+              className={className('c-input__clear', {'c-input__clear--hide': !(this.props.showClear && this.props.value.length > 0 && this.state.isFocus)})}
+              onClick={this.clearHandler.bind(this)}
+            />
+          }
         </div>
       </div>
     )

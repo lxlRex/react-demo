@@ -8,7 +8,7 @@ const config = require('../config')
 const utils = require('./utils')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
-  mode:  'development',
+  mode: 'development',
 
   // entry: path.resolve(__dirname, '../src/main.js'),
   module: {

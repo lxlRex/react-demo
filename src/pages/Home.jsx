@@ -90,7 +90,7 @@ export default class Home extends Component {
     return (
       <Provider store={store}>
         <div className="home" style={{ paddingBottom: '200px' }}>
-          <Testtsx/>
+          <Testtsx tsx/>
           <Test/>
           <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
           <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>

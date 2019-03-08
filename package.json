@@ -9,6 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@types/prop-types": "^15.7.0",
     "SassMagic": "https://github.com/W3cplus/SassMagic.git",
     "antd": "^3.13.5",
     "autosize": "^4.0.2",
@@ -68,6 +69,7 @@
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
     "typescript": "^3.3.3333",
+    "typescript-eslint-parser": "^22.0.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.0",

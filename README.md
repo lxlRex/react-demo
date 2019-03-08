@@ -1,7 +1,7 @@
 # react-demo
 
 #### 介绍
-webpack4 babel7 react
+webpack4 babel7 react ts
 
 #### 启动
 npm run dev

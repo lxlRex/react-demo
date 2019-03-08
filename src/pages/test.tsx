@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import className from 'classnames'
 import './home.scss'
 
 export default class Testtsx extends Component {
@@ -10,7 +11,7 @@ export default class Testtsx extends Component {
     let arr: number[] = [1, 2, 3, 4]
     return (
       <div onClick={this.clickHandler.bind(this)}>
-        { arr.map(item => <div className="testtsx" key={item}>{item}</div>) }
+        { arr.map(item => <div className={className('testtsx', {'qwer': item === 1})} key={item}>{item}</div>) }
       </div>
     )
   }

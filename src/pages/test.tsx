@@ -21,7 +21,7 @@ interface MyFunction {
   (a: string, b: number): boolean
 }
 
-let fn1:MyFunction
+let fn1: MyFunction
 fn1 = (a: string, b: number) => {
   return false
 }
@@ -49,13 +49,13 @@ export default class Testtsx extends Component {
     }
   }
 
-  clickHandler = ():void => {
+  clickHandler = (): void => {
     // console.log(this.props.tsx)
     let a: undefined
     console.log(a)
 
     let b: number | string | boolean
-    b = 213
+    b =  2213
     console.log(b)
 
     let c = 3
@@ -66,7 +66,7 @@ export default class Testtsx extends Component {
 
   render () {
     enum Types {text = 'text', password = 'password', tel = 'tel', number = 'number'}
-    let a:Types = Types.number
+    let a: Types = Types.number
     console.log(a)
     let arr: any[] = [1, 2, 3, 4, 'qqq']
     return (

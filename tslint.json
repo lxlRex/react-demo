@@ -5,7 +5,14 @@
     "triple-equals": [
       true,
       "allow-null-check"
-    ]
+    ],
+    "linebreak-style": [0 ,"error", "windows"],
+    "ordered-imports": false,
+    "semicolon": false,
+    "member-access": false,
+    "no-unused-expression": false,
+    "arrow-parens": false,
+    "no-magic-numbers": false
   },
   "linterOptions": {
     "exclude": [

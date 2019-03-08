@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import './checkbox.scss'
 
 interface IMyComponentProps  {
@@ -49,16 +49,16 @@ export default class Checkbox extends React.Component<IMyComponentProps, IMyComp
   }
 }
 
-(Checkbox as any).propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ])
-  })),
-  value: PropTypes.array
-};
+// (Checkbox as any).propTypes = {
+//   options: PropTypes.arrayOf(PropTypes.shape({
+//     label: PropTypes.string,
+//     value: PropTypes.oneOfType([
+//       PropTypes.string,
+//       PropTypes.number
+//     ])
+//   })),
+//   value: PropTypes.array
+// };
 
 (Checkbox as any).defaultProps = {
   options: [],

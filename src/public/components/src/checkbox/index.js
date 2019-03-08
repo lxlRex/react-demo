@@ -1,1 +1,1 @@
-export { default } from './src/checkbox.jsx'
+export { default } from './src/checkbox.tsx'

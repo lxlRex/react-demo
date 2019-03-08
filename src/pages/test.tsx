@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import className from 'classnames'
 import './home.scss'
 
+// 对类约束
 interface Tsx {
   print (msg: string): string
 }
@@ -14,6 +15,31 @@ class ColorPrinter implements Tsx {
 }
 
 let p1 = new ColorPrinter()
+
+// 对函数约束
+interface MyFunction {
+  (a: string, b: number): boolean
+}
+
+let fn1:MyFunction
+fn1 = (a: string, b: number) => {
+  return false
+}
+
+// 对数组
+interface MyArray {
+  [index: number]: string
+}
+
+let arr: MyArray
+arr = ['a', 'b']
+
+// 对json
+interface MyJson {
+  name: string,
+  readonly age: number,
+  email?: string
+}
 
 export default class Testtsx extends Component {
   constructor (props: Object) {

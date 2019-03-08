@@ -3,11 +3,20 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import './checkbox.scss'
 
-export default class Checkbox extends React.Component {
-  constructor (props) {
+interface IMyComponentProps  {
+  options: Array<any>,
+  onChange(arg: Array<string | number>): void
+}
+
+interface IMyComponentState {
+  options: Array<any>
+}
+
+export default class Checkbox extends React.Component<IMyComponentProps, IMyComponentState> {
+  constructor (props: any) {
     super(props)
     this.state = {
-      options: props.options.map(e => {
+      options: props.options.map((e: { value: any }) => {
         return {
           ...e,
           checked: props.value.indexOf(e.value) > -1
@@ -16,21 +25,13 @@ export default class Checkbox extends React.Component {
     }
   }
 
-  clickHandler (index) {
-    let newOptions = [].concat(this.state.options)
+  clickHandler (index: number) {
+    let newOptions = this.state.options.slice(0)
     newOptions[index].checked = !newOptions[index].checked
     this.setState({
       options: newOptions
     })
     this.props.onChange && this.props.onChange(newOptions.filter(({ checked }) => checked).map(({ value }) => value))
-    // this.setState(state => {
-    //   state.options[index].checked = !state.options[index].checked
-    //
-    //   this.props.onChange && this.props.onChange(state.options.filter(({ checked }) => checked).map(({ value }) => value))
-    //   return {
-    //     options: state.options
-    //   }
-    // })
   }
 
   render () {
@@ -48,7 +49,7 @@ export default class Checkbox extends React.Component {
   }
 }
 
-Checkbox.propTypes = {
+(Checkbox as any).propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.oneOfType([
@@ -57,9 +58,9 @@ Checkbox.propTypes = {
     ])
   })),
   value: PropTypes.array
-}
+};
 
-Checkbox.defaultProps = {
+(Checkbox as any).defaultProps = {
   options: [],
   value: []
 }

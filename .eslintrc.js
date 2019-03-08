@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: ['babel-eslint', 'typescript-eslint-parser'],
+  parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module'
   },

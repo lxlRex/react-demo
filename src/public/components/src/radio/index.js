@@ -1,1 +1,1 @@
-export { default } from './src/raido.jsx'
+export { default } from './src/raido.tsx'

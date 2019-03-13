@@ -1,26 +1,39 @@
 import React from 'react'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import './radio.scss'
 
-export default class Radio extends React.Component {
-  constructor (props) {
+interface Options {
+  label: string,
+  value: string | number,
+  checked?: boolean
+}
+
+interface IProps {
+  options: Array<Options>,
+  value: string | number,
+  onChange (value: string | number): void
+}
+
+interface IState {
+  options: Array<Options>
+}
+
+export default class Radio extends React.Component<IProps, IState> {
+  constructor (props: any) {
     super(props)
     this.state = {
-      options: props.options.map(e => {
-        return {
-          ...e,
-          checked: props.value === e.value
-        }
-      })
+      options: props.options.map((e: Options) => ({
+        ...e,
+        checked: props.value === e.value
+      }))
     }
   }
 
-  clickHandler (index) {
-    let newOptions = [].concat(this.state.options)
-    if (newOptions[index].checked) return
+  clickHandler (index: number) {
+    if (this.state.options[index].checked) return
 
-    newOptions.map((e) => Object.assign(e, { checked: false }))
+    let newOptions = this.state.options.map(e => ({...e, checked: false}))
     newOptions[index].checked = true
     this.setState({
       options: newOptions
@@ -41,18 +54,4 @@ export default class Radio extends React.Component {
       </div>
     )
   }
-}
-
-Radio.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number
-    ])
-  }))
-}
-
-Radio.defaultProps = {
-  options: []
 }

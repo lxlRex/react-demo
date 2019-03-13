@@ -1,7 +1,7 @@
 /**
  * @desc 获取图片
  * @param {file} file 文件
- * @return {promise}
+ * @return {Promise<any>}
  */
 function getImage (file) {
   return new Promise((resolve, reject) => {
@@ -28,7 +28,7 @@ function getImage (file) {
  * @desc 获取base64
  * @param {image} image 图片
  * @param {number} quality 压缩比例
- * @return {promise}
+ * @return {Promise<any>}
  */
 function getBase64 (image, quality) {
   return new Promise(resolve => {
@@ -47,7 +47,7 @@ function getBase64 (image, quality) {
 /**
  * @desc base64转blob
  * @param {urlData} urlData base64
- * @return {blob}
+ * @return {Blob}
  */
 function convertBase64UrlToBlob (urlData) {
   let arr = urlData.split(',')

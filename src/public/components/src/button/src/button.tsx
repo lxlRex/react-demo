@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
 import './button.scss'
 
-export default class Button extends Component {
+interface IProps {
+  disabled: boolean,
+  onClick (): void
+}
+
+export default class Button extends Component<IProps> {
   clickHandler () {
     if (this.props.disabled) return
     this.props.onClick && this.props.onClick()
@@ -18,11 +22,6 @@ export default class Button extends Component {
   }
 }
 
-Button.propTypes = {
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func
-}
-
-Button.defaultProps = {
+(Button as any).defaultProps = {
   disabled: false
 }

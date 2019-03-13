@@ -1,10 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './checker.scss'
 
-export default class Checker extends React.Component {
-  constructor (props) {
+interface IProps {
+  onChange (value: boolean): void
+}
+
+interface IState {
+  checked: boolean
+}
+
+export default class Checker extends React.Component<IProps, IState> {
+  constructor (props: any) {
     super(props)
     this.state = {
       checked: props.value
@@ -28,10 +35,7 @@ export default class Checker extends React.Component {
   }
 }
 
-Checker.propTypes = {
-  value: PropTypes.bool
-}
 
-Checker.defaultProps = {
+(Checker as any).defaultProps = {
   value: false
 }

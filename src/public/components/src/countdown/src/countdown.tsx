@@ -1,9 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-let interval = null
+let interval: any = null
 
-export default class Countdown extends React.Component {
+interface IProps {
+  start: boolean,
+  children (value: object): any
+}
+
+interface IState {
+  currentTime: number,
+  isFinish: boolean
+}
+
+export default class Countdown extends React.Component<IProps, IState> {
   state = {
     currentTime: 0,
     isFinish: true
@@ -28,7 +37,7 @@ export default class Countdown extends React.Component {
     })
   }
 
-  componentWillReceiveProps (props) {
+  componentWillReceiveProps (props: any) {
     if (props.start && this.state.isFinish) {
       this.setState({
         currentTime: props.time,
@@ -49,13 +58,7 @@ export default class Countdown extends React.Component {
   }
 }
 
-Countdown.propTypes = {
-  start: PropTypes.bool,
-  time: PropTypes.number,
-  children: PropTypes.func.isRequired
-}
-
-Countdown.defaultProps = {
+(Countdown as any).defaultProps = {
   start: false,
   time: 60
 }

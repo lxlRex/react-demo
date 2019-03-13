@@ -1,1 +1,1 @@
-export { default } from './src/image-uploader.jsx'
+export { default } from './src/image-uploader.tsx'

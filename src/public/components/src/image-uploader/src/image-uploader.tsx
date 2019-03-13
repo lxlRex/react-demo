@@ -5,8 +5,22 @@ import uuid from '../../../utils/uuid'
 import { compressImages } from '../../../utils/image-processor'
 import './image-uploader.scss'
 
-export default class ImageUploader extends React.Component {
-  constructor (props) {
+interface IProps {
+  action: string,
+  prompt: string,
+  size: number,
+  multiple: boolean,
+  value: string[] | string,
+  onChange (value: string[]): void,
+}
+
+interface IState {
+  innerValue: Array<string>,
+  uid: string
+}
+
+export default class ImageUploader extends React.Component<IProps, IState> {
+  constructor (props: any) {
     super(props)
     this.state = {
       innerValue: Array.isArray(props.value) ? props.value : props.value ? [props.value] : [],
@@ -14,13 +28,13 @@ export default class ImageUploader extends React.Component {
     }
   }
 
-  removeHandler (index) {
+  removeHandler (index: number) {
     let newData = this.state.innerValue.filter((o, i) => i !== index)
     this.setState({ innerValue: newData })
     this.props.onChange && this.props.onChange(newData)
   }
 
-  async changeHandler (e) {
+  async changeHandler (e: ChangeEvent) {
     console.log(e)
     e.persist()
     let files = e.target.files
@@ -74,20 +88,19 @@ export default class ImageUploader extends React.Component {
     )
   }
 }
+// ImageUploader.propTypes = {
+//   value: PropTypes.oneOfType([
+//     PropTypes.string,
+//     PropTypes.array
+//   ]),
+//   prompt: PropTypes.string,
+//   multiple: PropTypes.bool,
+//   size: PropTypes.number,
+//   onChange: PropTypes.func,
+//   action: PropTypes.string
+// }
 
-ImageUploader.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ]),
-  prompt: PropTypes.string,
-  multiple: PropTypes.bool,
-  size: PropTypes.number,
-  onChange: PropTypes.func,
-  action: PropTypes.string
-}
-
-ImageUploader.defaultProps = {
+(ImageUploader as any).defaultProps = {
   value: [],
   prompt: '上传图片',
   size: 8,

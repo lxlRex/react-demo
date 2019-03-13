@@ -1,1 +1,1 @@
-export { default } from './src/countdown.jsx'
+export { default } from './src/countdown.tsx'

@@ -1,1 +1,1 @@
-export { default } from './src/button.jsx'
+export { default } from './src/button.tsx'

@@ -1,1 +1,1 @@
-export { default } from './src/checker.jsx'
+export { default } from './src/checker.tsx'

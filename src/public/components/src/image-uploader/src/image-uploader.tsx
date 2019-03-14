@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import axios from 'axios'
 import uuid from '../../../utils/uuid'
 import { compressImages } from '../../../utils/image-processor'
@@ -34,18 +33,19 @@ export default class ImageUploader extends React.Component<IProps, IState> {
     this.props.onChange && this.props.onChange(newData)
   }
 
-  async changeHandler (e: ChangeEvent) {
+  async changeHandler (e: any) {
     console.log(e)
     e.persist()
     let files = e.target.files
     let compressFiles = await compressImages(files)
 
-    compressFiles.forEach(async ({ compressFile, name }) => {
+    compressFiles.forEach(async ({ compressFile = '', name = ''}) => {
       let fd = new FormData()
       fd.append('imgFile', compressFile, name)
       let { data: { data } } = await axios.post(this.props.action, fd)
 
-      let newData = [].concat(this.state.innerValue, data)
+      let newData = this.state.innerValue.concat(data)
+
       this.setState({
         innerValue: newData
       })

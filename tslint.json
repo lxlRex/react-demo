@@ -12,7 +12,8 @@
     "member-access": false,
     "no-unused-expression": false,
     "arrow-parens": false,
-    "no-magic-numbers": false
+    "no-magic-numbers": false,
+    "no-redundant-jsdoc": false
   },
   "linterOptions": {
     "exclude": [

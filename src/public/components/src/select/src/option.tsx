@@ -1,6 +1,11 @@
 import React from 'react'
 
-export default class Option extends React.Component {
+interface IProps {
+  value: string | number
+  label: string
+}
+
+export default class Option extends React.Component<IProps> {
   render () {
     return (
       <option value={ this.props.value }>{this.props.label}</option>

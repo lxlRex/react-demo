@@ -1,14 +1,21 @@
 import React from 'react'
 import classNames from 'classnames'
-import PropTypes from 'prop-types'
 import './mask.scss'
 
-export default class Mask extends React.Component {
+interface IProps {
+  scroll: boolean
+  display: boolean
+  show: boolean
+  maskClick (): void
+}
+
+export default class Mask extends React.Component<IProps> {
+  private mask: any;
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
   }
 
-  touchmoveHandler (e) {
+  touchmoveHandler (e: any) {
     if (!this.props.scroll) e.preventDefault()
   }
 
@@ -32,14 +39,7 @@ export default class Mask extends React.Component {
   }
 }
 
-Mask.propTypes = {
-  show: PropTypes.bool,
-  display: PropTypes.bool,
-  scroll: PropTypes.bool,
-  maskClick: PropTypes.func
-}
-
-Mask.defaultProps = {
+(Mask as any).defaultProps = {
   show: false,
   display: true,
   scroll: false

@@ -1,7 +1,12 @@
 import React from 'react'
 
-export default class Select extends React.Component {
-  changeHandler (e) {
+interface IProps {
+  onChange (value: string | number): void
+}
+
+
+export default class Select extends React.Component<IProps> {
+  changeHandler (e: any) {
     this.props.onChange && this.props.onChange(e.target.value)
   }
 

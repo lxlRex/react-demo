@@ -99,7 +99,7 @@ export default class Home extends Component {
           <Button onClick={this.alertHandler.bind(this)}>alert</Button>
           <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
           <Button onClick={this.toasthandler.bind(this)}>toast</Button>
-          <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength="20"/>
+          <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength={20}/>
           <div style={{ marginBottom: '30px' }}/>
           <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
           <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>

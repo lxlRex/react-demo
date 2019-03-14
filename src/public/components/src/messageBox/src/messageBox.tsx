@@ -1,10 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 import Mask from '../../mask'
 import './messageBox.scss'
 
-export default class MessageBox extends React.Component {
+enum Types {alert = 'alert', confirm = 'confirm'}
+
+interface IProps {
+  type: Types
+}
+
+export default class MessageBox extends React.Component<IProps> {
   state = {
     show: true,
     msg: 'alert',
@@ -43,10 +48,6 @@ export default class MessageBox extends React.Component {
   }
 }
 
-MessageBox.propTypes = {
-  type: PropTypes.oneOf(['alert', 'confirm'])
-}
-
-MessageBox.defaultProps = {
+(MessageBox as any).defaultProps = {
   type: 'alert'
 }

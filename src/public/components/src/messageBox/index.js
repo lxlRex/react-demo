@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './src/messageBox.jsx'
+import Component from './src/messageBox.tsx'
 
 let instance = {
   alert: null,

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './src/loading.jsx'
+import Component from './src/loading.tsx'
 
 const containerClassName = 'loading-container'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './src/toast.jsx'
+import Component from './src/toast.tsx'
 
 const containerClassName = 'toast-container'
 

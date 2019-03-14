@@ -1,1 +1,1 @@
-export { default } from './src/mask.jsx'
+export { default } from './src/mask.tsx'

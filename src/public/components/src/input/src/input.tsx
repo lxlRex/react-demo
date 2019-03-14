@@ -1,15 +1,26 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import className from 'classnames'
 import './input.scss'
 
-export default class Input extends React.Component {
+enum Types {test = 'text', number = 'number', tel = 'tel', password = 'password'}
+
+interface IProps {
+  value: string | number
+  showClear: boolean
+  label: string
+  type: Types
+  placeholder: string
+  name: string
+  onChange(e: any): void
+}
+
+export default class Input extends React.Component<IProps> {
   state = {
     clearShow: false,
     isFocus: false
   }
 
-  changeHandler (e) {
+  changeHandler (e: any) {
     this.props.onChange && this.props.onChange(e)
   }
 
@@ -26,10 +37,10 @@ export default class Input extends React.Component {
   clearHandler () {
     this.props.value && this.props.onChange && this.props.onChange({ target: { name: this.props.name, value: '' } })
   }
-
-  clearIcon () {
-    return this.props.showClear && this.props.value.length > 0 && this.state.isFocus ? '' : 'c-input__clear--hide'
-  }
+  //
+  // clearIcon () {
+  //   return this.props.showClear && this.props.value.length > 0 && this.state.isFocus ? '' : 'c-input__clear--hide'
+  // }
 
   render () {
     return (
@@ -47,7 +58,7 @@ export default class Input extends React.Component {
           />
           { this.props.showClear &&
             <div
-              className={className('c-input__clear', {'c-input__clear--hide': !(this.props.showClear && this.props.value.length > 0 && this.state.isFocus)})}
+              className={className('c-input__clear', {'c-input__clear--hide': !(this.props.showClear && String(this.props.value).length > 0 && this.state.isFocus)})}
               onClick={this.clearHandler.bind(this)}
             />
           }
@@ -57,13 +68,13 @@ export default class Input extends React.Component {
   }
 }
 
-Input.propTypes = {
-  showClear: PropTypes.bool,
-  type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
-  placeholder: PropTypes.string
-}
+// Input.propTypes = {
+//   showClear: PropTypes.bool,
+//   type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
+//   placeholder: PropTypes.string
+// }
 
-Input.defaultProps = {
+(Input as any).defaultProps = {
   showClear: false,
   type: 'text',
   placeholder: '请输入'

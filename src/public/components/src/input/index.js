@@ -1,1 +1,1 @@
-export { default } from './src/input.jsx'
+export { default } from './src/input.tsx'

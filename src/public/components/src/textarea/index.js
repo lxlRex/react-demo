@@ -1,1 +1,1 @@
-export { default } from './src/textarea'
+export { default } from './src/textarea.tsx'

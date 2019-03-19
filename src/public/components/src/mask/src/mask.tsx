@@ -3,14 +3,21 @@ import classNames from 'classnames'
 import './mask.scss'
 
 interface IProps {
-  scroll: boolean
+  scroll?: boolean
   display: boolean
   show: boolean
-  maskClick (): void
+  maskClick? (): void
 }
 
 export default class Mask extends React.Component<IProps> {
-  private mask: any;
+  static defaultProps = {
+    show: false,
+    display: true,
+    scroll: false
+  }
+
+  private mask: any
+
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
   }
@@ -38,9 +45,9 @@ export default class Mask extends React.Component<IProps> {
     this.mask.removeEventListener('touchmove', this.touchmoveHandler.bind(this))
   }
 }
-
-(Mask as any).defaultProps = {
-  show: false,
-  display: true,
-  scroll: false
-}
+//
+// (Mask as any).defaultProps = {
+//   show: false,
+//   display: true,
+//   scroll: false
+// }

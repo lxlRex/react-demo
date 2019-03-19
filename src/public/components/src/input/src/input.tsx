@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import className from 'classnames'
 import './input.scss'
 
@@ -15,6 +16,18 @@ interface IProps {
 }
 
 export default class Input extends React.Component<IProps> {
+  static propTypes = {
+    showClear: PropTypes.bool,
+    type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
+    placeholder: PropTypes.string
+  }
+
+  static defaultProps = {
+    showClear: false,
+    type: 'text',
+    placeholder: '请输入'
+  }
+
   state = {
     clearShow: false,
     isFocus: false
@@ -73,9 +86,9 @@ export default class Input extends React.Component<IProps> {
 //   type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
 //   placeholder: PropTypes.string
 // }
-
-(Input as any).defaultProps = {
-  showClear: false,
-  type: 'text',
-  placeholder: '请输入'
-}
+//
+// (Input as any).defaultProps = {
+//   showClear: false,
+//   type: 'text',
+//   placeholder: '请输入'
+// }

@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const merge = require('webpack-merge')
@@ -31,11 +32,12 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
   optimization: {
     // minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false
-      }),
+      // new UglifyJsPlugin({
+      //   cache: true,
+      //   parallel: true,
+      //   sourceMap: false
+      // }),
+      new TerserPlugin(),
       new OptimizeCSSAssetsPlugin({})
     ],
     runtimeChunk: {
@@ -83,7 +85,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       chunkFilename: utils.assetsPath('css/[name].[contenthash].css'),
-      // allChunks: true
+      allChunks: true
     })
   ]
 })

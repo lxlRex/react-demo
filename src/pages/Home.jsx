@@ -12,6 +12,9 @@ import Countdown from '@public/components/src/countdown'
 import Checker from '@public/components/src/checker'
 import { Select, Option } from '@public/components/src/select'
 // import { Button } from 'element-react'
+import browser from '@public/utils/browser'
+import Page from './decorator/Page'
+// import AsyncComponent from '@/router/AsyncComponent.jsx'
 
 import Test from './Test.jsx'
 import { Provider } from 'react-redux'
@@ -19,6 +22,8 @@ import { store } from '@/redux/store'
 
 import Testtsx from './test.tsx'
 
+@Page('首页')
+// @AsyncComponent
 export default class Home extends Component {
   state = {
     title: 'hello world',
@@ -123,6 +128,7 @@ export default class Home extends Component {
 
   componentDidMount () {
     console.log(this)
+    console.log(browser.Wechat)
   }
 
   componentWillUpdate () {

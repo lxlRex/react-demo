@@ -7,10 +7,13 @@ const Test = AsyncComponent(() => import('@/pages/Test.jsx'))
 
 const getRouter = () => (
   <Router>
-    <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/Test' component={Test}/>
-    </Switch>
+    <div>
+      <Link to="/Test">新闻</Link>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route path='/Test' component={Test}/>
+      </Switch>
+    </div>
   </Router>
 )
 

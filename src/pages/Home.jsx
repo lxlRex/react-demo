@@ -17,8 +17,6 @@ import Page from './decorator/Page'
 // import AsyncComponent from '@/router/AsyncComponent.jsx'
 
 import Test from './Test.jsx'
-import { Provider } from 'react-redux'
-import { store } from '@/redux/store'
 
 import Testtsx from './test.tsx'
 
@@ -92,36 +90,34 @@ export default class Home extends Component {
 
   render () {
     return (
-      <Provider store={store}>
-        <div className="home" style={{ paddingBottom: '200px' }}>
-          <Testtsx tsx/>
-          <Test/>
-          <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
-          <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
-          <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
-          <Button onClick={this.buttonClickHandler2.bind(this)}>showLoading</Button>
-          <Button onClick={this.alertHandler.bind(this)}>alert</Button>
-          <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
-          <Button onClick={this.toasthandler.bind(this)}>toast</Button>
-          <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength={20}/>
-          <div style={{ marginBottom: '30px' }}/>
-          <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
-          <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
-          <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
-          <Countdown start={this.state.start} time={6}>
-            { ({ currentTime, isFinish }) => <div>{isFinish ? 'finish' : currentTime}</div> }
-          </Countdown>
-          <Button onClick={this.start.bind(this)}>start</Button>
-          <Checker value={this.state.start} onChange={val => { this.setState({ start: val }) }}/>
-          <Select>
-            {
-              this.state.options.map(({ label, value }, index) => {
-                return <Option label={label} value={value} key={index} />
-              })
-            }
-          </Select>
-        </div>
-      </Provider>
+      <div className="home" style={{ paddingBottom: '200px' }}>
+        <Testtsx tsx/>
+        <Test/>
+        <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
+        <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
+        <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
+        <Button onClick={this.buttonClickHandler2.bind(this)}>showLoading</Button>
+        <Button onClick={this.alertHandler.bind(this)}>alert</Button>
+        <Button onClick={this.confirmHandler.bind(this)}>confirm</Button>
+        <Button onClick={this.toasthandler.bind(this)}>toast</Button>
+        <Textarea name="desc" value={this.state.desc} onChange={this.inputChangeHandler.bind(this)} showCount maxlength={20}/>
+        <div style={{ marginBottom: '30px' }}/>
+        <ImageUploader value={this.state.images} onChange={this.getImages.bind(this)}/>
+        <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
+        <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
+        <Countdown start={this.state.start} time={6}>
+          { ({ currentTime, isFinish }) => <div>{isFinish ? 'finish' : currentTime}</div> }
+        </Countdown>
+        <Button onClick={this.start.bind(this)}>start</Button>
+        <Checker value={this.state.start} onChange={val => { this.setState({ start: val }) }}/>
+        <Select>
+          {
+            this.state.options.map(({ label, value }, index) => {
+              return <Option label={label} value={value} key={index} />
+            })
+          }
+        </Select>
+      </div>
     )
   }
 

@@ -1,17 +1,31 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import router from './router'
 
-import AsyncComponent from './AsyncComponent.jsx'
-const Home = AsyncComponent(() => import('@/pages/Home.jsx'))
-const Test = AsyncComponent(() => import('@/pages/Test.jsx'))
+const qwe = (router) => {
+  return router.map(({path, name, exact = false, component, children = []}) => {
+    if (children.length > 0) {
+      return (
+        <Route exact={exact} path={path} key={name} component={component}>
+          qwe(children)
+        </Route>
+      )
+    } else {
+      return <Route exact={exact} path={path} key={name} component={component}/>
+    }
+  })
+}
 
 const getRouter = () => (
   <Router>
     <div>
-      <Link to="/Test">新闻</Link>
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/Test' component={Test}/>
+        {
+          // router.map(({path, name, exact, component}) => {
+          //   return <Route exact={exact} path={path} key={name} component={component}/>
+          // })
+          qwe(router)
+        }
       </Switch>
     </div>
   </Router>

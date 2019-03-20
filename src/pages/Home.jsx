@@ -23,7 +23,6 @@ import { store } from '@/redux/store'
 import Testtsx from './test.tsx'
 
 @Page({title: '首页', backgroundColor: '#f2f3f4'})
-// @AsyncComponent
 export default class Home extends Component {
   state = {
     title: 'hello world',

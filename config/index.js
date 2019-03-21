@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
   dev: {
+    assetsPublicPath: '/',
     host: '0.0.0.0',
     port: 8808,
     assetsSubDirectory: 'static',
@@ -12,6 +13,7 @@ module.exports = {
   },
 
   build: {
+    assetsPublicPath: '/',
     assetsSubDirectory: 'static',
     assetsRoot: path.resolve(__dirname, '../dist'),
     devtool: 'none',

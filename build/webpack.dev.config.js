@@ -17,7 +17,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
   },
 
   devtool: config.dev.devtool,

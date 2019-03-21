@@ -25,7 +25,7 @@ module.exports = {
   entry: path.resolve(__dirname, '../src/main.js'),
 
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js', '.json', '.ts', '.tsx'],
     alias: {
       '@': resolve('src'),
       '@public': resolve('src/public')

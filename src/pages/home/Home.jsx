@@ -14,6 +14,8 @@ import { Select, Option } from '../../public/components/src/select'
 import browser from '../../public/utils/browser'
 import Page from '../decorator/Page'
 
+import { Utils } from '../../class/index'
+
 @Page({title: '首页', backgroundColor: '#f2f3f4'})
 export default class Home extends Component {
   state = {
@@ -116,6 +118,7 @@ export default class Home extends Component {
   componentDidMount () {
     console.log(this)
     console.log(browser.Wechat)
+    console.log(Utils.getData())
   }
 
   componentWillUpdate () {

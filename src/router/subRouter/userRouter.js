@@ -1,4 +1,4 @@
-import AsyncComponent from '../AsyncComponent.jsx'
+import AsyncComponent from '../AsyncComponent.tsx'
 
 export default [
   {

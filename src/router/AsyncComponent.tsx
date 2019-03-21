@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 
-export default function AsyncComponent (importComponent) {
-  class AsyncComponent extends Component {
-    constructor (props) {
+interface IState {
+  component: any
+}
+
+export default function AsyncComponent (importComponent: () => PromiseLike<{ default: any }>) {
+  class AsyncComponent extends Component<null, IState> {
+    constructor (props: any) {
       super(props)
 
       this.state = {
@@ -13,9 +17,7 @@ export default function AsyncComponent (importComponent) {
     async componentDidMount () {
       const { default: component } = await importComponent()
 
-      this.setState({
-        component: component
-      })
+      this.setState({ component })
     }
 
     render () {

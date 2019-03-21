@@ -1,4 +1,4 @@
-export default (parentPath, subRouter) => {
+export default (parentPath: string, subRouter: Array<{path: string}>) => {
   return subRouter.map(e => {
     return {
       ...e,

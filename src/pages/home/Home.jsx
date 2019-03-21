@@ -11,10 +11,8 @@ import Radio from '../../public/components/src/radio'
 import Countdown from '../../public/components/src/countdown'
 import Checker from '../../public/components/src/checker'
 import { Select, Option } from '../../public/components/src/select'
-// import { Button } from 'element-react'
 import browser from '../../public/utils/browser'
 import Page from '../decorator/Page'
-// import AsyncComponent from '@/router/AsyncComponent.jsx'
 
 @Page({title: '首页', backgroundColor: '#f2f3f4'})
 export default class Home extends Component {

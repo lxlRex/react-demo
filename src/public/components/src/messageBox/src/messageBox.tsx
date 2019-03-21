@@ -10,6 +10,10 @@ interface IProps {
 }
 
 export default class MessageBox extends React.Component<IProps> {
+  static defaultProps = {
+    type: 'alert'
+  }
+
   state = {
     show: true,
     msg: 'alert',
@@ -46,8 +50,4 @@ export default class MessageBox extends React.Component<IProps> {
       </Mask>
     )
   }
-}
-
-(MessageBox as any).defaultProps = {
-  type: 'alert'
 }

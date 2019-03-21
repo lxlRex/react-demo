@@ -45,9 +45,3 @@ export default class Mask extends React.Component<IProps> {
     this.mask.removeEventListener('touchmove', this.touchmoveHandler.bind(this))
   }
 }
-//
-// (Mask as any).defaultProps = {
-//   show: false,
-//   display: true,
-//   scroll: false
-// }

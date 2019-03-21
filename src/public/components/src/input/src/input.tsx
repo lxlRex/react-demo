@@ -80,15 +80,3 @@ export default class Input extends React.Component<IProps> {
     )
   }
 }
-
-// Input.propTypes = {
-//   showClear: PropTypes.bool,
-//   type: PropTypes.oneOf(['text', 'number', 'tel', 'password']),
-//   placeholder: PropTypes.string
-// }
-//
-// (Input as any).defaultProps = {
-//   showClear: false,
-//   type: 'text',
-//   placeholder: '请输入'
-// }

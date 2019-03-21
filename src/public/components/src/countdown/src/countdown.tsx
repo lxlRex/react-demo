@@ -13,6 +13,11 @@ interface IState {
 }
 
 export default class Countdown extends React.Component<IProps, IState> {
+  static defaultProps = {
+    start: false,
+    time: 60
+  }
+
   state = {
     currentTime: 0,
     isFinish: true
@@ -56,9 +61,4 @@ export default class Countdown extends React.Component<IProps, IState> {
       </div>
     )
   }
-}
-
-(Countdown as any).defaultProps = {
-  start: false,
-  time: 60
 }

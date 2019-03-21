@@ -11,6 +11,10 @@ interface IState {
 }
 
 export default class Checker extends React.Component<IProps, IState> {
+  static defaultProps = {
+    value: false
+  }
+
   constructor (props: any) {
     super(props)
     this.state = {
@@ -33,9 +37,4 @@ export default class Checker extends React.Component<IProps, IState> {
       </div>
     )
   }
-}
-
-
-(Checker as any).defaultProps = {
-  value: false
 }

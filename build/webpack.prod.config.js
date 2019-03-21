@@ -44,27 +44,28 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
       name: 'manifest'
     },
     splitChunks: {
-      chunks: 'async',
-      minSize: 30000,
-      maxSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
-      name: true,
-      cacheGroups: {
-        vendor: {
-          test: /react/, // 直接使用 test 来做路径匹配
-          chunks: "initial",
-          name: "vendor",
-          enforce: true,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
-      }
+      chunks: 'all'
+      // chunks: 'async',
+      // minSize: 30000,
+      // maxSize: 0,
+      // minChunks: 1,
+      // maxAsyncRequests: 5,
+      // maxInitialRequests: 3,
+      // automaticNameDelimiter: '~',
+      // name: true,
+      // cacheGroups: {
+      //   vendor: {
+      //     test: /react/, // 直接使用 test 来做路径匹配
+      //     chunks: "initial",
+      //     name: "vendor",
+      //     enforce: true,
+      //   },
+      //   default: {
+      //     minChunks: 2,
+      //     priority: -20,
+      //     reuseExistingChunk: true
+      //   }
+      // }
     }
   },
 

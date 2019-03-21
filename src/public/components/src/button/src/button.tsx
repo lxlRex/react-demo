@@ -8,6 +8,10 @@ interface IProps {
 }
 
 export default class Button extends Component<IProps> {
+  static defaultProps = {
+    disabled: false
+  }
+
   clickHandler () {
     if (this.props.disabled) return
     this.props.onClick && this.props.onClick()
@@ -20,8 +24,4 @@ export default class Button extends Component<IProps> {
       </div>
     )
   }
-}
-
-(Button as any).defaultProps = {
-  disabled: false
 }

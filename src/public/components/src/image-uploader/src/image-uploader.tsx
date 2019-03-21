@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 import uuid from '../../../utils/uuid'
 import { compressImages } from '../../../utils/image-processor'
 import './image-uploader.scss'
@@ -19,6 +20,26 @@ interface IState {
 }
 
 export default class ImageUploader extends React.Component<IProps, IState> {
+  static propTypes = {
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array
+    ]),
+    prompt: PropTypes.string,
+    multiple: PropTypes.bool,
+    size: PropTypes.number,
+    onChange: PropTypes.func,
+    action: PropTypes.string
+  }
+
+  static defaultProps = {
+    value: [],
+    prompt: '上传图片',
+    size: 8,
+    action: '//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do',
+    multiple: false
+  }
+
   constructor (props: any) {
     super(props)
     this.state = {

@@ -4,3 +4,4 @@
 /*.js
 /src/
 !/src/*.tsx
+!/src/*.ts

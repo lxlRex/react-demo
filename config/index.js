@@ -17,7 +17,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsRoot: path.resolve(__dirname, '../dist'),
     devtool: 'none',
-    bundleAnalyzerReport: true,
+    bundleAnalyzerReport: false,
     productionSourceMap: false
   }
 }

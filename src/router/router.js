@@ -1,6 +1,8 @@
 import AsyncComponent from './AsyncComponent.jsx'
-import userRouter from './subRouter/userRouter.js'
 import getSubRouter from './getSubRouter'
+import RouterContainer from './router-container.tsx'
+
+import userRouter from './subRouter/userRouter.js'
 
 
 export default [
@@ -12,7 +14,7 @@ export default [
   },
   {
     name: 'User',
-    component: AsyncComponent(() => import('@/pages/Test.jsx')),
+    component: RouterContainer,
     routes: getSubRouter('/user', userRouter)
   }
 ]

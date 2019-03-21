@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { renderRoutes } from 'react-router-config'
 
-export default class extends Component {
+interface IProps {
+  route: any
+}
+
+export default class extends Component<IProps> {
   render () {
-    // @ts-ignore
     const { route: {routes} } = this.props
     return (
       <>

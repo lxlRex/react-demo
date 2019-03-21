@@ -7,12 +7,12 @@ enum Types {text = 'text', number = 'number', tel = 'tel', password = 'password'
 
 interface IProps {
   value: string | number
-  showClear: boolean
-  label: string
-  type: Types
-  placeholder: string
-  name: string
-  onChange(e: any): void
+  showClear?: boolean
+  label?: string
+  type?: string
+  placeholder?: string
+  name?: string
+  onChange?: (e: any) => void
 }
 
 export default class Input extends React.Component<IProps> {

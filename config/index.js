@@ -8,7 +8,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     devtool: 'eval-source-map',
     cssSourceMap: true,
-    useEslint: true,
+    useEslint: false,
     showEslintErrorsInOverlay: false
   },
 

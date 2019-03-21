@@ -1,6 +1,6 @@
-import AsyncComponent from './AsyncComponent'
-import getSubRouter from './getSubRouter'
-import RouterContainer from './router-container'
+import AsyncComponent from './AsyncComponent.tsx'
+import getSubRouter from './getSubRouter.ts'
+import RouterContainer from './router-container.tsx'
 
 import userRouter from './subRouter/userRouter.js'
 

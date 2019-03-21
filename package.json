@@ -16,6 +16,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "element-react": "^1.4.32",
+    "history": "^4.9.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
@@ -23,6 +24,7 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
+    "react-router-config": "^5.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
@@ -43,6 +45,7 @@
     "@types/prop-types": "^15.7.0",
     "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",
+    "@types/react-router-config": "^1.1.2",
     "autoprefixer": "^9.4.7",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",

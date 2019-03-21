@@ -1,5 +1,7 @@
 import AsyncComponent from './AsyncComponent.jsx'
 import userRouter from './subRouter/userRouter.js'
+import getSubRouter from './getSubRouter'
+
 
 export default [
   {
@@ -9,10 +11,8 @@ export default [
     component: AsyncComponent(() => import('@/pages/Home.jsx'))
   },
   {
-    path: '/test',
-    name: 'Test',
-    exact: false,
-    component: AsyncComponent(() => import('@/pages/Home.jsx')),
-    children: userRouter
+    name: 'User',
+    component: AsyncComponent(() => import('@/pages/Test.jsx')),
+    routes: getSubRouter('/user', userRouter)
   }
 ]

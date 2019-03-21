@@ -17,9 +17,7 @@ class ColorPrinter implements Tsx {
 let p1 = new ColorPrinter()
 
 // 对函数约束
-interface MyFunction {
-  (a: string, b: number): boolean
-}
+type MyFunction = (a: string, b: number) => boolean
 
 let fn1: MyFunction
 fn1 = (a: string, b: number) => {

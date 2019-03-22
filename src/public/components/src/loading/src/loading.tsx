@@ -1,5 +1,5 @@
 import React from 'react'
-import Mask from '../../mask'
+import Mask from '../../mask/index'
 import './loading.scss'
 
 export default class Loading extends React.Component {

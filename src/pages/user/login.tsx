@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Page from '../decorator/Page'
 import Input from '../../public/components/src/input'
-
+// import '../home.scss'
 // interface IState {
 //   userName: string
 //   password: string
@@ -21,7 +21,7 @@ export default class Login extends Component<any, any> {
   render() {
     return (
       <div>
-        login
+        <div className="login">login</div>
         <Input name="userName" value={this.state.userName} type="text" placeholder="账号" onChange={this.inputChangeHandler.bind(this)} />
         <Input name="password" value={this.state.password} type="password" placeholder="密码" onChange={this.inputChangeHandler.bind(this)} />
       </div>

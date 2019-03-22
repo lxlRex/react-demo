@@ -1,13 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './src/messageBox.tsx'
+import Component from './src/messageBox'
 
-let instance = {
+// interface Type {
+//   type: 'alert' | 'confirm'
+// }
+enum Type {alert = 'alert', confirm = 'confirm'}
+
+let instance: {
+  alert: any;
+  confirm: any;
+} = {
   alert: null,
   confirm: null
 }
 
-function createMessageBox ({ type }) {
+function createMessageBox ({ type }: { type: Type.alert | Type.confirm }) {
   let containerClassName = `${type}-container`
   let container = document.createElement('div')
   container.className = containerClassName
@@ -26,18 +34,20 @@ export default class MessageBox {
    * @param {string} btnText button text
    * @return {Promise<any>}
    */
-  static alert ({ msg, btnText }) {
+  static alert ({ msg, btnText }: {msg: string; btnText: string}) {
     return new Promise(resolve => {
-      let type = 'alert'
+      // @ts-ignore
+      let type: Type.alert | Type.confirm = 'alert'
 
       if (!instance[type]) createMessageBox({ type })
       instance[type].setState({ show: true, msg, confirmBtn: btnText, confirm: resolve })
     })
   }
 
-  static confirm ({ msg, confirmBtn, cancelBtn }) {
+  static confirm ({ msg, confirmBtn, cancelBtn }: {msg: string; confirmBtn: string; cancelBtn: string}) {
     return new Promise((resolve, reject) => {
-      let type = 'confirm'
+      // @ts-ignore
+      let type: Type.alert | Type.confirm = 'confirm'
 
       if (!instance[type]) createMessageBox({ type })
       instance[type].setState({ show: true, msg, confirmBtn, cancelBtn, confirm: resolve, cancel: reject })

@@ -1,12 +1,12 @@
 import React from 'react'
 import noop from 'lodash/noop'
-import Mask from '../../mask'
+import Mask from '../../mask/index'
 import './messageBox.scss'
 
 enum Types {alert = 'alert', confirm = 'confirm'}
 
 interface IProps {
-  type: Types
+  type: 'alert' | 'confirm'
 }
 
 export default class MessageBox extends React.Component<IProps> {

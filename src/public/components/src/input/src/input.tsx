@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import className from 'classnames'
 import './input.scss'
 
-enum Types {text = 'text', number = 'number', tel = 'tel', password = 'password'}
+// enum Types {text = 'text', number = 'number', tel = 'tel', password = 'password'}
 
 interface IProps {
   value: string | number
   showClear?: boolean
   label?: string
-  type?: string
+  type?: 'text' | 'number' | 'tel' | 'password'
   placeholder?: string
   name?: string
   onChange?: (e: any) => void

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './src/toast.tsx'
+import Component from './src/toast'
 
 const containerClassName = 'toast-container'
 
-let instance = null
+let instance: any = null
 
 function createToast () {
   let container = document.createElement('div')
@@ -18,7 +18,7 @@ function createToast () {
 }
 
 export default class Toast {
-  static show (msg, delay = 3000) {
+  static show (msg: string, delay = 3000) {
     return new Promise(resolve => {
       if (!instance) createToast()
 

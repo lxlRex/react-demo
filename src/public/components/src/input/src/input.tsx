@@ -50,10 +50,6 @@ export default class Input extends React.Component<IProps> {
   clearHandler () {
     this.props.value && this.props.onChange && this.props.onChange({ target: { name: this.props.name, value: '' } })
   }
-  //
-  // clearIcon () {
-  //   return this.props.showClear && this.props.value.length > 0 && this.state.isFocus ? '' : 'c-input__clear--hide'
-  // }
 
   render () {
     return (

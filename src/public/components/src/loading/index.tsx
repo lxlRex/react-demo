@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Component from './src/loading.tsx'
+import Component from './src/loading'
 
 const containerClassName = 'loading-container'
 
-let instance = null
+let instance: any
 
 function createLoading () {
   let container = document.createElement('div')

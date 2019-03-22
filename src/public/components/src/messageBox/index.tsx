@@ -36,8 +36,7 @@ export default class MessageBox {
    */
   static alert ({ msg, btnText }: {msg: string; btnText: string}) {
     return new Promise(resolve => {
-      // @ts-ignore
-      let type: Type.alert | Type.confirm = 'alert'
+      let type = Type.alert
 
       if (!instance[type]) createMessageBox({ type })
       instance[type].setState({ show: true, msg, confirmBtn: btnText, confirm: resolve })
@@ -46,8 +45,7 @@ export default class MessageBox {
 
   static confirm ({ msg, confirmBtn, cancelBtn }: {msg: string; confirmBtn: string; cancelBtn: string}) {
     return new Promise((resolve, reject) => {
-      // @ts-ignore
-      let type: Type.alert | Type.confirm = 'confirm'
+      let type = Type.confirm
 
       if (!instance[type]) createMessageBox({ type })
       instance[type].setState({ show: true, msg, confirmBtn, cancelBtn, confirm: resolve, cancel: reject })

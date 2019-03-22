@@ -15,7 +15,7 @@ let instance: {
   confirm: null
 }
 
-function createMessageBox ({ type }: { type: Type.alert | Type.confirm }) {
+function createMessageBox ({ type }: { type: Type }) {
   let containerClassName = `${type}-container`
   let container = document.createElement('div')
   container.className = containerClassName

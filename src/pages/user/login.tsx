@@ -34,7 +34,11 @@ export default class Login extends Component<any, any> {
     // }
   }
 
-  render() {
+  componentWillMount (): void {
+    console.log(this.props)
+  }
+
+  render () {
     return (
       <div>
         <div className="login">login</div>

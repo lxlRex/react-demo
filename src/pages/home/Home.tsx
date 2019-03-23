@@ -36,6 +36,7 @@ export default class Home extends Component {
   }
 
   componentWillMount () {
+    console.log('home')
   }
 
   buttonClickHandler () {

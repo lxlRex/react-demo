@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 interface IState {
-  component: any
+  component: React.ComponentClass | null
 }
 
 export default function AsyncComponent (importComponent: () => PromiseLike<{ default: any }>) {

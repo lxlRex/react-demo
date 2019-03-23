@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Page from '../decorator/Page'
 import Input from '../../public/components/src/input'
 import Button from '../../public/components/src/button'
+
+import { login } from '../../api/user'
+import { User } from '../../public/class'
 // import '../home.scss'
 // interface IState {
 //   userName: string
@@ -19,8 +22,16 @@ export default class Login extends Component<any, any> {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  login () {
+  async login () {
+    let {data} = await login(this.state)
 
+    await User.login(data)
+
+    // if (this.$route.query.backUrl) {
+    //   location.href = decodeURIComponent(this.$route.query.backUrl)
+    // } else {
+    //   this.$router.push({name: 'Home'})
+    // }
   }
 
   render() {

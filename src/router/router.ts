@@ -1,6 +1,6 @@
-import AsyncComponent from './AsyncComponent'
-import getSubRouter from './getSubRouter'
-import RouterContainer from './router-container'
+import AsyncComponent from './utils/AsyncComponent'
+import getSubRouter from './utils/getSubRouter'
+import RouterContainer from './utils/router-container'
 
 import userRouter from './subRouter/userRouter'
 

@@ -1,4 +1,4 @@
-import AsyncComponent from '../AsyncComponent'
+import AsyncComponent from '../utils/AsyncComponent'
 
 export default [
   {

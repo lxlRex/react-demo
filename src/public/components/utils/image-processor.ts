@@ -3,12 +3,12 @@
  * @param {file} file 文件
  * @return {Promise<any>}
  */
-function getImage (file) {
+function getImage (file: Blob) {
   return new Promise((resolve, reject) => {
     let fr = new FileReader()
     fr.readAsDataURL(file)
     fr.onload = function () {
-      let image = new Image()
+      let image: any = new Image()
       image.src = this.result
       image.onload = function () {
         resolve(this)
@@ -30,16 +30,16 @@ function getImage (file) {
  * @param {number} quality 压缩比例
  * @return {Promise<any>}
  */
-function getBase64 (image, quality) {
+function getBase64 (image: any, quality: number) {
   return new Promise(resolve => {
     let width = image.width
     let height = image.height
 
-    const canvas = document.createElement('canvas')
+    const canvas: HTMLCanvasElement = document.createElement('canvas')
     canvas.width = width
     canvas.height = height
     const context = canvas.getContext('2d')
-    context.drawImage(image, 0, 0, width, height)
+    context!.drawImage(image, 0, 0, width, height)
     resolve(canvas.toDataURL('image/jpeg', quality))
   })
 }
@@ -49,7 +49,7 @@ function getBase64 (image, quality) {
  * @param {urlData} urlData base64
  * @return {Blob}
  */
-function convertBase64UrlToBlob (urlData) {
+function convertBase64UrlToBlob (urlData: any) {
   let arr = urlData.split(',')
   let mime = arr[0].match(/:(.*?);/)[1]
   let bstr = atob(arr[1])
@@ -67,9 +67,9 @@ function convertBase64UrlToBlob (urlData) {
  * @param {number} quality 压缩比例
  * @return {blob}
  */
-export async function compressImage (file, quality = 0.75) {
+export async function compressImage (file: any, quality = 0.75) {
   try {
-    let image = await getImage(file)
+    let image: any= await getImage(file)
     let urlData = await getBase64(image, quality)
 
     return {
@@ -92,7 +92,7 @@ export async function compressImage (file, quality = 0.75) {
  * @param {number} quality 压缩比例
  * @return {blob}
  */
-export async function compressImages (files, quality = 0.75) {
+export async function compressImages (files: any, quality = 0.75) {
   let images = []
   for (let i = 0; i < files.length; i++) {
     let data = await compressImage(files[i], quality)

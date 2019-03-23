@@ -1,5 +1,6 @@
 import React from 'react'
 import Autosize from 'autosize'
+import PropTypes from 'prop-types'
 import './textarea.scss'
 
 interface IProps {
@@ -7,7 +8,7 @@ interface IProps {
   name: string
   maxlength: number
   showCount: boolean
-  placeholder: string
+  placeholder?: string
   onChange (e: any): void
 }
 
@@ -16,6 +17,22 @@ interface IState {
 }
 
 export default class Textarea extends React.Component<IProps, IState> {
+  static propTypes = {
+    maxlength: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    showCount: PropTypes.bool,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func
+  }
+
+  static defaultProps = {
+    showCount: false,
+    placeholder: '请输入',
+    value: ''
+  }
+
   private textarea: any;
 
   constructor (props: any) {
@@ -61,20 +78,4 @@ export default class Textarea extends React.Component<IProps, IState> {
   componentWillUnmount () {
     this.unbindAutosize()
   }
-}
-
-// Textarea.propTypes = {
-//   maxlength: PropTypes.oneOfType([
-//     PropTypes.string,
-//     PropTypes.number
-//   ]),
-//   showCount: PropTypes.bool,
-//   placeholder: PropTypes.string,
-//   onChange: PropTypes.func
-// }
-
-(Textarea as any).defaultProps = {
-  showCount: false,
-  placeholder: '请输入',
-  value: ''
 }

@@ -12,7 +12,7 @@ interface Options {
 interface IProps {
   options: Array<Options>,
   value: string | number,
-  onChange (value: string | number): void
+  onChange? (value: string | number): void
 }
 
 interface IState {

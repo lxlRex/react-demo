@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface IProps {
-  onChange (value: string | number): void
+  onChange? (value: string | number): void
 }
 
 

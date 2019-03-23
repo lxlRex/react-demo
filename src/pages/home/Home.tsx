@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import Button from '../../public/components/src/button/index'
 import Input from '../../public/components/src/input/index'
-import Textarea from '../../public/components/src/textarea/index.ts'
-import Loading from '../../public/components/src/loading/index.tsx'
-import MessageBox from '../../public/components/src/messageBox/index.tsx'
-import Toast from '../../public/components/src/toast/index.tsx'
-import ImageUploader from '../../public/components/src/image-uploader/index.ts'
-import Checkbox from '../../public/components/src/checkbox/index.ts'
-import Radio from '../../public/components/src/radio/index.ts'
-import Countdown from '../../public/components/src/countdown/index.ts'
-import Checker from '../../public/components/src/checker/index.ts'
-import { Select, Option } from '../../public/components/src/select/index.ts'
+import Textarea from '../../public/components/src/textarea/index'
+import Loading from '../../public/components/src/loading/index'
+import MessageBox from '../../public/components/src/messageBox/index'
+import Toast from '../../public/components/src/toast/index'
+import ImageUploader from '../../public/components/src/image-uploader/index'
+import Checkbox from '../../public/components/src/checkbox/index'
+import Radio from '../../public/components/src/radio/index'
+import Countdown from '../../public/components/src/countdown/index'
+import Checker from '../../public/components/src/checker/index'
+import { Select, Option } from '../../public/components/src/select/index'
 import browser from '../../public/utils/browser'
 import Page from '../decorator/Page'
 
@@ -18,6 +18,8 @@ import { Utils } from '../../class/index'
 
 @Page({title: '首页', backgroundColor: '#f2f3f4'})
 export default class Home extends Component {
+  input: any
+
   state = {
     title: 'hello world',
     desc: '12312',
@@ -45,7 +47,7 @@ export default class Home extends Component {
     setTimeout(Loading.hide, 3000)
   }
 
-  inputChangeHandler (e) {
+  inputChangeHandler (e: any) {
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -70,7 +72,7 @@ export default class Home extends Component {
     })
   }
 
-  getImages (value) {
+  getImages (value: any) {
     console.log(value)
   }
 
@@ -100,7 +102,7 @@ export default class Home extends Component {
         <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
         <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
         <Countdown start={this.state.start} time={6}>
-          { ({ currentTime, isFinish }) => <div>{isFinish ? 'finish' : currentTime}</div> }
+          { ({ currentTime, isFinish }: {currentTime: any; isFinish: any}) => <div>{isFinish ? 'finish' : currentTime}</div> }
         </Countdown>
         <Button onClick={this.start.bind(this)}>start</Button>
         <Checker value={this.state.start} onChange={val => { this.setState({ start: val }) }}/>

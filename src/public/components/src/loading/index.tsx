@@ -24,7 +24,7 @@ export default class Loading {
     instance.setState({ show: true })
   }
 
-  static hide () {
+  static close () {
     instance && instance.setState({ show: false })
   }
 }

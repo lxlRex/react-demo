@@ -34,7 +34,7 @@ export default class MessageBox {
    * @param {string} btnText button text
    * @return {Promise<any>}
    */
-  static alert ({ msg, btnText }: {msg: string; btnText: string}) {
+  static alert ({ msg, btnText = '确认' }: {msg: string; btnText?: string}) {
     return new Promise(resolve => {
       let type = Type.alert
 

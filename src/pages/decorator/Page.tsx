@@ -11,6 +11,7 @@ export default function ({title = 'react-demo', backgroundColor = '#fff'}) {
   return <T extends new(...args: any[]) => {}> (PageComponent: T) => {
     return class extends PageComponent {
       componentWillMount () {
+        // PageComponent.componentWillMount()
         document.title = title
         document.body.style.background = backgroundColor
       }

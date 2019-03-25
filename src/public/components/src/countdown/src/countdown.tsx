@@ -1,10 +1,9 @@
 import React from 'react'
-
-let interval: any = null
+import PropTypes from 'prop-types'
 
 interface IProps {
   start: boolean,
-  children (value: object): any
+  children: (value: object) => any
 }
 
 interface IState {
@@ -13,10 +12,17 @@ interface IState {
 }
 
 export default class Countdown extends React.Component<IProps, IState> {
+  static propTypes = {
+    start: PropTypes.bool,
+    children: PropTypes.func
+  }
+
   static defaultProps = {
     start: false,
     time: 60
   }
+
+  interval: any = null
 
   state = {
     currentTime: 0,
@@ -24,7 +30,7 @@ export default class Countdown extends React.Component<IProps, IState> {
   }
 
   countdown () {
-    interval = setInterval(() => {
+    this.interval = setInterval(() => {
       if (this.state.currentTime > 1) {
         this.setState({
           currentTime: this.state.currentTime - 1
@@ -36,7 +42,7 @@ export default class Countdown extends React.Component<IProps, IState> {
   }
 
   finishCountdown () {
-    clearInterval(interval)
+    clearInterval(this.interval)
     this.setState({
       isFinish: true
     })
@@ -60,5 +66,9 @@ export default class Countdown extends React.Component<IProps, IState> {
         { this.props.children({ currentTime: this.state.currentTime, isFinish: this.state.isFinish }) }
       </div>
     )
+  }
+
+  componentWillUnmount(): void {
+    clearInterval(this.interval)
   }
 }

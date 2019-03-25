@@ -103,7 +103,7 @@ export default class Home extends Component {
         <Checkbox options={this.state.options} value={this.state.checkbox} onChange={this.getImages.bind(this)}/>
         <Radio options={this.state.options} value={this.state.radio} onChange={this.getImages.bind(this)}/>
         <Countdown start={this.state.start} time={6}>
-          { ({ currentTime, isFinish }: {currentTime: any; isFinish: any}) => <div>{isFinish ? 'finish' : currentTime}</div> }
+          { ({ currentTime, isFinish }: {currentTime: number; isFinish: boolean}) => <div>{isFinish ? 'finish' : currentTime}</div> }
         </Countdown>
         <Button onClick={this.start.bind(this)}>start</Button>
         <Checker value={this.state.start} onChange={val => { this.setState({ start: val }) }}/>

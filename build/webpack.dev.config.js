@@ -10,7 +10,7 @@ const utils = require('./utils')
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
 
-  // entry: path.resolve(__dirname, '../src/main.js'),
+  // entry: path.resolve(__dirname, '../src/main.ts'),
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },

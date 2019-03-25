@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component, ComponentClass } from 'react'
 
 // export default ({title = 'react-demo', backgroundColor = '#fff'}) => <T extends new(...args: any[]) => {}>(PageComponent: T) => class Page extends Component<any, any> {
 //   componentWillMount () {
@@ -7,13 +7,16 @@ import React from 'react'
 //   }
 // }
 
-export default function ({title = 'react-demo', backgroundColor = '#fff'}) {
-  return <T extends new(...args: any[]) => {}> (PageComponent: T) => {
-    return class extends PageComponent {
+export default ({title = 'react-demo', backgroundColor = '#fff'}) => {
+  return (PageComponent: ComponentClass<any, any>) => {
+    return class extends Component<any, any> {
       componentWillMount () {
-        // PageComponent.componentWillMount()
         document.title = title
         document.body.style.background = backgroundColor
+      }
+
+      render () {
+        return <PageComponent />
       }
     }
   }

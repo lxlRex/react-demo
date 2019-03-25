@@ -33,7 +33,7 @@ export default class Textarea extends React.Component<IProps, IState> {
     value: ''
   }
 
-  private textarea: any;
+  private textarea: any = React.createRef()
 
   constructor (props: any) {
     super(props)
@@ -59,7 +59,7 @@ export default class Textarea extends React.Component<IProps, IState> {
   render () {
     return (
       <div className="c-textarea">
-        <textarea className="c-textarea__entity" ref={textarea => (this.textarea = textarea)}
+        <textarea className="c-textarea__entity" ref={this.textarea}
           value={this.props.value}
           name={this.props.name}
           maxLength={this.props.maxlength}

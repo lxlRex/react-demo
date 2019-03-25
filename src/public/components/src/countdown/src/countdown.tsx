@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 interface IProps {
   start: boolean,
-  children: (value: object) => any
+  children: (value: {currentTime: number; isFinish: boolean}) => any
 }
 
 interface IState {

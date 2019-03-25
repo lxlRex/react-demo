@@ -16,7 +16,7 @@ export default class Mask extends React.Component<IProps> {
     scroll: false
   }
 
-  private mask: any
+  private mask: any = React.createRef()
 
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
@@ -29,7 +29,7 @@ export default class Mask extends React.Component<IProps> {
   render () {
     return (
       <div className={classNames('c-mask', { 'c-mask--display': this.props.display, 'c-mask--hide': !this.props.show })}
-        ref={mask => { this.mask = mask }}
+        ref={this.mask}
         onClick={this.clickHandler.bind(this)}
       >
         {this.props.children}

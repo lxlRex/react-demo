@@ -8,5 +8,8 @@
   li {
     flex: 1;
     text-align: center;
+    &.active {
+      color: #25b5fe;
+    }
   }
 }

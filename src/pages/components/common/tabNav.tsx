@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import { Tab, TabItem } from '../../../public/components/src/tab'
 import { renderRoutes } from 'react-router-config'
 
@@ -10,6 +11,10 @@ const tabList = [
   {
     name: '分类',
     path: '/index/classify'
+  },
+  {
+    name: '我的',
+    path: '/index/my'
   }
 ]
 
@@ -20,7 +25,7 @@ interface IProps {
 }
 
 export default class TabNav extends Component<IProps, {}> {
-  changeTab = (path: any) => {
+  changeTab = (path: any): void => {
     if (path === this.props.location.pathname) return
     this.props.history.push(path)
   }
@@ -35,7 +40,7 @@ export default class TabNav extends Component<IProps, {}> {
           {
             tabList.map(({name, path}) => {
               return (
-                <TabItem key={name}>
+                <TabItem key={name} active={path === this.props.location.pathname}>
                   <div onClick={() => this.changeTab(path)}>{name}</div>
                 </TabItem>
               )

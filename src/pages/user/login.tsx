@@ -33,7 +33,7 @@ export default class Login extends Component<any, any> {
     if (backUrl) {
       location.href = decodeURIComponent(backUrl)
     } else {
-      this.props.history.push('/Home')
+      this.props.history.push('/')
     }
   }
 

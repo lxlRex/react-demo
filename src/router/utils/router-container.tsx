@@ -8,6 +8,7 @@ interface IProps {
 export default class extends Component<IProps> {
   render () {
     const { route: {routes} } = this.props
+    console.log(routes)
     return (
       <>
         {renderRoutes(routes)}

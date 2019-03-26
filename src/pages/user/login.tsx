@@ -11,7 +11,7 @@ import { User } from '../../public/class'
 //   password: string
 // }
 
-@Page({title: '登录'})
+@Page({title: '登录', needLogin: false})
 export default class Login extends Component<any, any> {
   state = {
     userName: '',
@@ -27,14 +27,17 @@ export default class Login extends Component<any, any> {
 
     await User.login(data)
 
-    // if (this.$route.query.backUrl) {
-    //   location.href = decodeURIComponent(this.$route.query.backUrl)
-    // } else {
-    //   this.$router.push({name: 'Home'})
-    // }
+    const query_params: any = new URLSearchParams(this.props.location.search)
+    const backUrl = query_params.get('backUrl')
+
+    if (backUrl) {
+      location.href = decodeURIComponent(backUrl)
+    } else {
+      this.props.history.push('/Home')
+    }
   }
 
-  componentWillMount (): void {
+  componentDidMount (): void {
     console.log(this.props)
   }
 

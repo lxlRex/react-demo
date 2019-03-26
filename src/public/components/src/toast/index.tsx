@@ -22,11 +22,17 @@ export default class Toast {
     return new Promise(resolve => {
       if (!instance) createToast()
 
+      if (instance.state.show) return
+
       instance.setState({ show: true, msg })
       setTimeout(() => {
         instance.setState({ show: false })
         resolve()
-      }, 3000)
+      }, delay)
     })
+  }
+
+  static close () {
+
   }
 }

@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import debounce from 'lodash/debounce'
 import Component from './src/loading'
 
 const containerClassName = 'loading-container'
 
 let instance: any
+let count = 0
 
 function createLoading () {
   let container = document.createElement('div')
@@ -21,10 +23,15 @@ export default class Loading {
   static show () {
     if (!instance) createLoading()
 
+    count++
+
+    if (instance.state.show) return
     instance.setState({ show: true })
   }
 
   static close () {
-    instance && instance.setState({ show: false })
+    if (!count) return
+    count--
+    instance && debounce(() => instance.setState({ show: false }), 300)()
   }
 }

@@ -16,7 +16,6 @@ import Page from '../decorator/Page'
 
 import { Utils } from '../../public/class'
 
-// @ts-ignore
 @Page({title: '首页', backgroundColor: '#f2f3f4'})
 export default class Home extends Component {
   input: any

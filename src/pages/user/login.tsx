@@ -11,8 +11,6 @@ import { User } from '../../public/class'
 //   password: string
 // }
 
-
-// @ts-ignore
 @Page({title: '登录'})
 export default class Login extends Component<any, any> {
   state = {

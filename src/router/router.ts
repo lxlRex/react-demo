@@ -13,12 +13,13 @@ export default [
     component: AsyncComponent(() => import('../pages/home/Home'))
   },
   {
+    path: '/index',
     name: 'Index',
     component: TabNav,
-    exact: true,
     routes: getSubRouter(indexRouter, '/index')
   },
   {
+    path: '/user',
     name: 'User',
     component: RouterContainer,
     routes: getSubRouter(userRouter, '/user')

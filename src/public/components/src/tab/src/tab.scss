@@ -1,3 +1,12 @@
 .c-tab {
   display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    flex: 1;
+    text-align: center;
+  }
 }

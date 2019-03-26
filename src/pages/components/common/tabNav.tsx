@@ -4,22 +4,27 @@ import { renderRoutes } from 'react-router-config'
 
 const tabList = [
   {
-    name: '首页'
+    name: '首页',
+    path: '/index/home'
   },
   {
-    name: '分类'
+    name: '分类',
+    path: '/index/classify'
   }
 ]
 
 interface IProps {
   route: any
+  history: any
+  location: any
 }
 
-interface IState {
+export default class TabNav extends Component<IProps, {}> {
+  changeTab = (path: any) => {
+    if (path === this.props.location.pathname) return
+    this.props.history.push(path)
+  }
 
-}
-
-export default class TabNav extends Component<IProps, IState> {
   render() {
     const { route: {routes} } = this.props
 
@@ -28,10 +33,10 @@ export default class TabNav extends Component<IProps, IState> {
         {renderRoutes(routes)}
         <Tab>
           {
-            tabList.map(({name}) => {
+            tabList.map(({name, path}) => {
               return (
                 <TabItem key={name}>
-                  <div>{name}</div>
+                  <div onClick={() => this.changeTab(path)}>{name}</div>
                 </TabItem>
               )
             })

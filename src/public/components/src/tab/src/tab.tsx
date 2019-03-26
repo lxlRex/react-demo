@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import './tab.scss'
 
 export default class Tab extends Component<{children: any}> {
   render() {

@@ -42,11 +42,11 @@ export default class Textarea extends React.Component<IProps, IState> {
     }
   }
 
-  bindAutosize () { Autosize(this.textarea) }
+  bindAutosize () { Autosize(this.textarea.current) }
 
-  updateAutoSize () { Autosize.update(this.textarea) }
+  updateAutoSize () { Autosize.update(this.textarea.current) }
 
-  unbindAutosize () { Autosize.destroy(this.textarea) }
+  unbindAutosize () { Autosize.destroy(this.textarea.current) }
 
   changeHandler (e: any) {
     this.updateAutoSize()

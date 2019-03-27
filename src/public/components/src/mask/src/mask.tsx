@@ -16,7 +16,7 @@ export default class Mask extends React.Component<IProps> {
     scroll: false
   }
 
-  private mask: any = React.createRef()
+  mask: any = React.createRef()
 
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
@@ -38,10 +38,10 @@ export default class Mask extends React.Component<IProps> {
   }
 
   componentDidMount () {
-    this.mask.addEventListener('touchmove', this.touchmoveHandler.bind(this), { passive: false })
+    this.mask.current.addEventListener('touchmove', this.touchmoveHandler.bind(this), { passive: false })
   }
 
   componentWillUnmount () {
-    this.mask.removeEventListener('touchmove', this.touchmoveHandler.bind(this))
+    this.mask.current.removeEventListener('touchmove', this.touchmoveHandler.bind(this))
   }
 }

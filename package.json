@@ -41,6 +41,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "^7.3.1",
     "@types/autosize": "^3.0.6",
+    "@types/axios": "^0.14.0",
     "@types/classnames": "^2.2.7",
     "@types/lodash": "^4.14.123",
     "@types/prop-types": "^15.7.0",

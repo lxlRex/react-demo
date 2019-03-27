@@ -1,5 +1,5 @@
-import MessageBox from '../../components/src/messageBox'
-import { ApiStatus } from '../../config'
+import MessageBox from '../../components/src/messageBox/index'
+import { ApiStatus } from '../../config/index'
 
 const install = (axios: any) => {
   axios.interceptors.response.use(

@@ -1,4 +1,4 @@
-import Loading from '../../components/src/loading'
+import Loading from '../../components/src/loading/index'
 
 const install = (axios: any) => {
   axios.interceptors.request.use(

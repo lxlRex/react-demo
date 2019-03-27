@@ -8,8 +8,9 @@ import indexRouter from './subRouter/indexRouter'
 
 export default [
   {
-    path: '/test',
+    path: '/',
     name: 'Test',
+    exact: true,
     component: AsyncComponent(() => import('../pages/home/Home'))
   },
   {

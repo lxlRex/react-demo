@@ -45,7 +45,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
     },
     splitChunks: {
       chunks: 'all'
-      // chunks: 'async',
+      // chunks: 'all',
       // minSize: 30000,
       // maxSize: 0,
       // minChunks: 1,
@@ -57,7 +57,6 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
       //   vendor: {
       //     test: /react/, // 直接使用 test 来做路径匹配
       //     chunks: "initial",
-      //     name: "vendor",
       //     enforce: true,
       //   },
       //   default: {

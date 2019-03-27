@@ -16,7 +16,7 @@ import Page from '../decorator/Page'
 
 import { Utils } from '../../public/class'
 
-@Page({title: 'Test', backgroundColor: '#f2f3f4'})
+@Page({title: 'Test', backgroundColor: '#f2f3f4', needLogin: false})
 export default class Home extends Component {
   input: any
 

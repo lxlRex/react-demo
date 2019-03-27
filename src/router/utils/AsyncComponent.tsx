@@ -5,7 +5,7 @@ interface IState {
 }
 
 export default function AsyncComponent (importComponent: () => PromiseLike<{ default: any }>) {
-  class AsyncComponent extends Component<null, IState> {
+  return class AsyncComponent extends Component<null, IState> {
     constructor (props: any) {
       super(props)
 
@@ -26,6 +26,4 @@ export default function AsyncComponent (importComponent: () => PromiseLike<{ def
       return C ? <C {...this.props} /> : null
     }
   }
-
-  return AsyncComponent
 }

@@ -38,7 +38,7 @@ module.exports = {
       {
         test: /\.ts|.tsx$/,
         exclude: /node_modules/,
-        loader: "ts-loader"
+        loader: ["babel-loader?cacheDirectory", "ts-loader"]
       },
       {
         test: /\.js|.jsx$/,

@@ -63,7 +63,7 @@ export default class ImageUploader extends React.Component<IProps, IState> {
     compressFiles.forEach(async ({ compressFile = '', name = ''}) => {
       let fd = new FormData()
       fd.append('imgFile', compressFile, name)
-      let { data: { data } } = await (axios as any).post(this.props.action, fd)
+      let { data: { data } } = await axios.post(this.props.action, fd)
 
       let newData = this.state.innerValue.concat(data)
 

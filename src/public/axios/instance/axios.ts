@@ -10,8 +10,7 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? PRO_URL : TEST_
 axios.defaults.timeout = TIMEOUT
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
 
-let a: any = axios
-let instance: any = a.create()
+let instance: any = axios.create()
 
 LoadingInterceptor.use(instance)
 AlertInterceptor.use(instance)

@@ -12,7 +12,7 @@
     <!-- built files will be auto injected -->
   </body>
 </html>
-<% if (process.env.NODE_ENV !== '"production"') {%>
+<% if (htmlWebpackPlugin.options.process.env.NODE_ENV !== 'production') {%>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/eruda"></script>
   <script type="text/javascript">
     eruda.init()

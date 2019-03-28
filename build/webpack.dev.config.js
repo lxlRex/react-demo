@@ -47,6 +47,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         removeComments: false,
         collapseWhitespace: false,
         removeAttributeQuotes: false
+      },
+      process: {
+        env: {
+          NODE_ENV: 'development'
+        }
       }
     }),
     new webpack.HotModuleReplacementPlugin()

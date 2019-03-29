@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
     "build": "node build/build.js",
-    "dll": "node build/webpack.dll.config.js"
+    "dll": "webpack -p --progress --config build/webpack.dll.config.js"
   },
   "dependencies": {
     "SassMagic": "https://github.com/W3cplus/SassMagic.git",
@@ -23,7 +23,7 @@
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-router-config": "^5.0.0",
     "react-router-dom": "^4.3.1",

@@ -24,6 +24,10 @@ const createLintingRule = () => ({
 module.exports = {
   entry: path.resolve(__dirname, '../src/main.ts'),
 
+  externals: {
+    'react': 'React'
+  },
+
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],
     alias: {

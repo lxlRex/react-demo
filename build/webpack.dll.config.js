@@ -4,6 +4,7 @@ const config = require('../config')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.config')
 
 // const vendors = [
@@ -14,13 +15,26 @@ module.exports = merge(baseWebpackConfig, {
   mode: 'production',
 
   entry: {
-    react: ['react']
+    react: ['React'],
+    reactDom: ['react-dom']
   },
 
   output: {
     path: path.join(__dirname, '../cache', 'dll-plugin', 'dist'),
     filename: '[name].dll.js',
     library: '[name]',
+  },
+
+  optimization: {
+    // minimize: true,
+    minimizer: [
+      // new UglifyJsPlugin({
+      //   cache: true,
+      //   parallel: true,
+      //   sourceMap: false
+      // }),
+      new TerserPlugin(),
+    ]
   },
 
   module: {

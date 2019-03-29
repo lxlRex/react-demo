@@ -44,7 +44,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
       name: 'manifest'
     },
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all' // all, async, initial
       // chunks: 'all',
       // minSize: 30000,
       // maxSize: 0,
@@ -53,7 +53,7 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
       // maxInitialRequests: 3,
       // automaticNameDelimiter: '~',
       // name: true,
-      // cacheGroups: {
+      // cacheGroups: { // 缓存组可以继承或覆盖splitChunks中的任何选项。但是test，priority和reuseExistingChunk只能在缓存组级别配置。要禁用任何默认缓存组，请将它们设置为false。
       //   vendor: {
       //     test: /react/, // 直接使用 test 来做路径匹配
       //     chunks: "initial",

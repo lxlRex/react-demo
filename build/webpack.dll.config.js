@@ -5,6 +5,7 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const path = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.config')
 
 // const vendors = [
@@ -15,12 +16,11 @@ module.exports = merge(baseWebpackConfig, {
   mode: 'production',
 
   entry: {
-    react: ['React'],
-    reactDom: ['react-dom']
+    react: ['React', 'react-dom']
   },
 
   output: {
-    path: path.join(__dirname, '../cache', 'dll-plugin', 'dist'),
+    path: path.join(__dirname, '../dll', 'dist'),
     filename: '[name].dll.js',
     library: '[name]',
   },
@@ -46,8 +46,9 @@ module.exports = merge(baseWebpackConfig, {
   },
 
   plugins: [
+    new CleanWebpackPlugin(['dll']),
     new webpack.DllPlugin({
-      path: path.join(__dirname, '../cache', 'dll-plugin', '[name]-manifest.json'),
+      path: path.join(__dirname, '../dll', '[name]-manifest.json'),
       name: '[name]',
     })
   ]

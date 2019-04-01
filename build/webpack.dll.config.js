@@ -46,7 +46,7 @@ module.exports = merge(baseWebpackConfig, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['dll']),
+    new CleanWebpackPlugin(),
     new webpack.DllPlugin({
       path: path.join(__dirname, '../dll', '[name]-manifest.json'),
       name: '[name]',

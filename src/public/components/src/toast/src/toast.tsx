@@ -8,6 +8,22 @@ export default class Toast extends React.Component {
     msg: ''
   }
 
+  isShow () {
+    return this.state.show
+  }
+
+  show (msg: string): Promise<any> {
+    return new Promise(resolve => {
+      this.setState({ show: true, msg }, resolve)
+    })
+  }
+
+  hide (): Promise<any> {
+    return new Promise(resolve => {
+      this.setState({show: false}, resolve)
+    })
+  }
+
   render () {
     return (
       <div className={classNames('c-toast', { 'c-toast--show': this.state.show })}>

@@ -18,21 +18,25 @@ function createToast () {
 }
 
 export default class Toast {
-  static show (msg: string, delay = 3000) {
+  static show (msg: string, delay = 3000): Promise<any> {
     return new Promise(resolve => {
       if (!instance) createToast()
 
-      if (instance.state.show) return
+      if (instance.isShow()) return
 
-      instance.setState({ show: true, msg })
-      setTimeout(() => {
-        instance.setState({ show: false })
-        resolve()
-      }, delay)
+      instance.show(msg).then(() => {
+        setTimeout(() => {
+          instance.hide().then(resolve)
+        }, delay)
+      })
+
     })
   }
 
-  static close () {
-
+  static destory () {
+    instance = null
+    let container: HTMLElement = document.querySelector(containerClassName) as HTMLElement
+    ReactDOM.unmountComponentAtNode(container)
+    container.parentNode && container.parentNode.removeChild(container)
   }
 }

@@ -1,7 +1,7 @@
 @import '~SassMagic/src/mixins/BEM';
 
 @include b (c-toast) {
-  width: 300px;
+  max-width: 300px;
   border-radius: 5px;
   position: fixed;
   top: 50%;

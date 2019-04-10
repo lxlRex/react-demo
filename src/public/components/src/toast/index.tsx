@@ -34,9 +34,13 @@ export default class Toast {
   }
 
   static destory () {
-    instance = null
     let container: HTMLElement = document.querySelector(containerClassName) as HTMLElement
-    ReactDOM.unmountComponentAtNode(container)
-    container.parentNode && container.parentNode.removeChild(container)
+
+    if (instance || container) {
+      instance = null
+
+      ReactDOM.unmountComponentAtNode(container)
+      container.parentNode && container.parentNode.removeChild(container)
+    }
   }
 }

@@ -69,7 +69,7 @@ function convertBase64UrlToBlob (urlData: any) {
  */
 export async function compressImage (file: any, quality = 0.75) {
   try {
-    let image: any= await getImage(file)
+    let image: any = await getImage(file)
     let urlData = await getBase64(image, quality)
 
     return {

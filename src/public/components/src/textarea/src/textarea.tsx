@@ -33,10 +33,12 @@ export default class Textarea extends React.Component<IProps, IState> {
     value: ''
   }
 
-  private textarea: any = React.createRef()
+  private readonly textarea: React.RefObject<any>
 
   constructor (props: any) {
     super(props)
+
+    this.textarea = React.createRef()
     this.state = {
       count: props.value.length || 0
     }

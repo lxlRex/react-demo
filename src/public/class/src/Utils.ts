@@ -1,9 +1,13 @@
+interface StringKey {
+  [key: string]: any
+}
+
 export default class Utils {
   /**
    * @desc 深拷贝
    * @param obj
    */
-  static deepClone (obj: any): any {
+  static deepClone (obj: StringKey): any {
     if (typeof obj !== 'object') return
     let newObj = obj instanceof Array ? [] : {}
     for (let key in obj) {
@@ -20,7 +24,7 @@ export default class Utils {
    * @param {object} target
    * @param args
    */
-  static mergeOwn (target: {[key: string]: any}, ...args: {[key: string]: any}[]) {
+  static mergeOwn (target: StringKey, ...args: StringKey[]) {
     args.forEach(obj => {
       for (let key in obj) {
         if (target.hasOwnProperty(key)) {

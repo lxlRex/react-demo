@@ -3,15 +3,15 @@ import noop from 'lodash/noop'
 import Mask from '../../mask/index'
 import './messageBox.scss'
 
-enum Types {alert = 'alert', confirm = 'confirm'}
+export enum Types {alert = 'alert', confirm = 'confirm'}
 
 interface IProps {
-  type: 'alert' | 'confirm'
+  type: Types
 }
 
 export default class MessageBox extends React.Component<IProps> {
   static defaultProps = {
-    type: 'alert'
+    type: Types.alert
   }
 
   state = {
@@ -43,7 +43,7 @@ export default class MessageBox extends React.Component<IProps> {
         <div className="message-box">
           <div className="message-box__msg">{this.state.msg}</div>
           <div className="message-box__btnBox">
-            { this.props.type === 'confirm' && <div className="message-box__btn message-box__btn--cancel" onClick={this.cancelHandler.bind(this)}>{this.state.cancelBtn}</div> }
+            { this.props.type === Types.confirm && <div className="message-box__btn message-box__btn--cancel" onClick={this.cancelHandler.bind(this)}>{this.state.cancelBtn}</div> }
             <div className="message-box__btn" onClick={this.confirmHandler.bind(this)}>{this.state.confirmBtn}</div>
           </div>
         </div>

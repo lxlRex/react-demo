@@ -1,6 +1,8 @@
 import React from 'react'
 import Mask from '../../mask/index'
 import './loading.scss'
+import { CSSTransition } from 'react-transition-group'
+import '../../../animation/fade.css'
 
 export default class Loading extends React.Component {
   state = {
@@ -25,11 +27,17 @@ export default class Loading extends React.Component {
 
   render () {
     return (
-      <Mask show={this.state.show} display={false}>
-        <div className="loading">
-          <em className="loading__img"/>
-        </div>
-      </Mask>
+      <CSSTransition
+        in={this.state.show}
+        classNames={'fade'}
+        timeout={300}
+        unmountOnExit>
+        <Mask show bgColor={'transparent'}>
+          <div className="loading">
+            <em className="loading__img"/>
+          </div>
+        </Mask>
+      </CSSTransition>
     )
   }
 }

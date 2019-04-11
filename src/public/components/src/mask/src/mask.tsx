@@ -4,19 +4,25 @@ import './mask.scss'
 
 interface IProps {
   scroll?: boolean
-  display: boolean
   show: boolean
+  bgColor?: string
   maskClick? (): void
 }
 
 export default class Mask extends React.Component<IProps> {
   static defaultProps = {
     show: false,
-    display: true,
-    scroll: false
+    scroll: false,
+    bgColor: 'rgba(0, 0, 0, .5)'
   }
 
-  mask: any = React.createRef()
+  private readonly mask: React.RefObject<any>
+
+  constructor (props: any) {
+    super(props)
+
+    this.mask = React.createRef()
+  }
 
   clickHandler () {
     this.props.maskClick && this.props.maskClick()
@@ -27,9 +33,12 @@ export default class Mask extends React.Component<IProps> {
   }
 
   render () {
+    const { bgColor, show } = this.props
+
     return (
-      <div className={classNames('c-mask', { 'c-mask--display': this.props.display, 'c-mask--hide': !this.props.show })}
+      <div className={classNames('c-mask', { 'c-mask--hide': !show })}
         ref={this.mask}
+        style={{backgroundColor: bgColor}}
         onClick={this.clickHandler.bind(this)}
       >
         {this.props.children}

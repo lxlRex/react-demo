@@ -77,7 +77,7 @@ export default class Home extends Component {
   }
 
   toasthandler () {
-    Toast.show('qqqweqwqewqweqasdf').then(() => {
+    Toast.show({msg: 'qqqweqwqewqweqasdf'}).then(() => {
       console.log('hide toast')
     })
   }

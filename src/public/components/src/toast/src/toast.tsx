@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import { CSSTransition } from 'react-transition-group'
 import './toast.scss'
 
 export default class Toast extends React.Component {
@@ -26,9 +27,15 @@ export default class Toast extends React.Component {
 
   render () {
     return (
-      <div className={classNames('c-toast', { 'c-toast--show': this.state.show })}>
-        <div className="c-toast__text">{this.state.msg}</div>
-      </div>
+      <CSSTransition
+        in={this.state.show}
+        classNames={'fade'}
+        timeout={300}
+        unmountOnExit>
+        <div className={classNames('c-toast')}>
+          <div className="c-toast__text">{this.state.msg}</div>
+        </div>
+      </CSSTransition>
     )
   }
 }

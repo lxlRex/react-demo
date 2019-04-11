@@ -2,9 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Component from './src/toast'
 
+interface ToastData {
+  msg: string;
+  delay?: number;
+  callBack? (): any
+}
+
 const containerClassName = 'toast-container'
 
 let instance: any = null
+let queue: ToastData[] = []
 
 function createToast () {
   let container = document.createElement('div')
@@ -17,19 +24,28 @@ function createToast () {
   )
 }
 
-export default class Toast {
-  static show (msg: string, delay = 3000): Promise<any> {
-    return new Promise(resolve => {
-      if (!instance) createToast()
+function showToast ({msg, delay = 3000, callBack}: ToastData) {
+  if (!instance) createToast()
 
-      if (instance.isShow()) return
+  if (instance.isShow()) {
+    queue.push({msg, delay, callBack})
+    return
+  }
 
-      instance.show(msg).then(() => {
-        setTimeout(() => {
-          instance.hide().then(resolve)
-        }, delay)
+  instance.show(msg).then(() => {
+    setTimeout(() => {
+      instance.hide().then(() => {
+        callBack && callBack()
+        queue.length && showToast(queue.shift() as ToastData)
       })
+    }, delay)
+  })
+}
 
+export default class Toast {
+  static show ({msg, delay = 3000}: ToastData): Promise<any> {
+    return new Promise(resolve => {
+      showToast({msg, delay, callBack: resolve})
     })
   }
 

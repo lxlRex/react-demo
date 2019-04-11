@@ -32,7 +32,7 @@ export default class Loading extends React.Component {
         classNames={'fade'}
         timeout={300}
         unmountOnExit>
-        <Mask show bgColor={'transparent'}>
+        <Mask bgColor={'transparent'}>
           <div className="loading">
             <em className="loading__img"/>
           </div>

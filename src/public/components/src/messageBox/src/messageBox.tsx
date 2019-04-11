@@ -1,7 +1,8 @@
 import React from 'react'
-import noop from 'lodash/noop'
 import Mask from '../../mask/index'
 import './messageBox.scss'
+import { CSSTransition } from 'react-transition-group'
+import '../../../animation/fade.css'
 
 export enum Types {alert, confirm}
 
@@ -15,12 +16,12 @@ export default class MessageBox extends React.Component<IProps> {
   }
 
   state = {
-    show: true,
+    show: false,
     msg: 'alert',
     cancelBtn: '取消',
     confirmBtn: '确定',
-    confirm: noop,
-    cancel: noop
+    confirm: () => {},
+    cancel: () => {}
   }
 
   cancelHandler () {
@@ -39,15 +40,21 @@ export default class MessageBox extends React.Component<IProps> {
 
   render () {
     return (
-      <Mask show={this.state.show}>
-        <div className="message-box">
-          <div className="message-box__msg">{this.state.msg}</div>
-          <div className="message-box__btnBox">
-            { this.props.type === Types.confirm && <div className="message-box__btn message-box__btn--cancel" onClick={this.cancelHandler.bind(this)}>{this.state.cancelBtn}</div> }
-            <div className="message-box__btn" onClick={this.confirmHandler.bind(this)}>{this.state.confirmBtn}</div>
+      <CSSTransition
+        in={this.state.show}
+        classNames={'fade'}
+        timeout={300}
+        unmountOnExit>
+        <Mask>
+          <div className="message-box">
+            <div className="message-box__msg">{this.state.msg}</div>
+            <div className="message-box__btnBox">
+              { this.props.type === Types.confirm && <div className="message-box__btn message-box__btn--cancel" onClick={this.cancelHandler.bind(this)}>{this.state.cancelBtn}</div> }
+              <div className="message-box__btn" onClick={this.confirmHandler.bind(this)}>{this.state.confirmBtn}</div>
+            </div>
           </div>
-        </div>
-      </Mask>
+        </Mask>
+      </CSSTransition>
     )
   }
 }

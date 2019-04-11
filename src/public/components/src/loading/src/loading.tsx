@@ -7,6 +7,18 @@ export default class Loading extends React.Component {
     show: false
   }
 
+  isShow () {
+    return this.state.show
+  }
+
+  show () {
+    this.setState({show: true})
+  }
+
+  hide () {
+    this.setState({show: false})
+  }
+
   render () {
     return (
       <Mask show={this.state.show} display={false}>

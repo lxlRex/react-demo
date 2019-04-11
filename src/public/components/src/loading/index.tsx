@@ -25,13 +25,13 @@ export default class Loading {
 
     count++
 
-    if (instance.state.show) return
-    instance.setState({ show: true })
+    if (instance.isShow()) return
+    instance.show()
   }
 
   static close () {
     if (!count) return
     count--
-    instance && debounce(() => instance.setState({ show: false }), 300)()
+    instance && debounce(instance.hide, 300)()
   }
 }

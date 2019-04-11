@@ -10,9 +10,6 @@
   z-index: 999;
   box-shadow: 0 1px 10px rgba(0, 0, 0, .5);
 
-  @include m (show) {
-  }
-
   @include e (text) {
     text-align: center;
     border-radius: 5px;
@@ -22,26 +19,4 @@
     word-break: break-word;
     font-size: 14px;
   }
-}
-
-.fade {
-
-}
-
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
 }

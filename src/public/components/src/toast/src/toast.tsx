@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { CSSTransition } from 'react-transition-group'
 import './toast.scss'
+import '../../../animation/fade.css'
 
 export default class Toast extends React.Component {
   state = {

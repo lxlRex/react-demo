@@ -3,7 +3,7 @@ import noop from 'lodash/noop'
 import Mask from '../../mask/index'
 import './messageBox.scss'
 
-export enum Types {alert = 'alert', confirm = 'confirm'}
+export enum Types {alert, confirm}
 
 interface IProps {
   type: Types

@@ -15,7 +15,7 @@ function createLoading () {
 
   instance = ReactDOM.render(
     <Component/>,
-    document.querySelector(`.${containerClassName}`)
+    container
   )
 }
 

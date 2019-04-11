@@ -11,14 +11,19 @@ let instance: {
 }
 
 function createMessageBox ({ type }: { type: Types }) {
-  let containerClassName = `${type}-container`
+  const TypeMapper = {
+    [Types.alert]: 'alert',
+    [Types.confirm]: 'confirm'
+  }
+
+  let containerClassName = `${TypeMapper[type]}-container`
   let container = document.createElement('div')
   container.className = containerClassName
   document.body.appendChild(container)
 
   instance[type] = ReactDOM.render(
     <Component type={type}/>,
-    document.querySelector(`.${containerClassName}`)
+    container
   )
 }
 

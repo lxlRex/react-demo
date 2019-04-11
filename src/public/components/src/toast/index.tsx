@@ -13,7 +13,7 @@ function createToast () {
 
   instance = ReactDOM.render(
     <Component/>,
-    document.querySelector(`.${containerClassName}`)
+    container
   )
 }
 

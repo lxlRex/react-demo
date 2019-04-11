@@ -121,10 +121,10 @@ export default class ImageUploader extends React.Component<IProps, IState> {
 //   action: PropTypes.string
 // }
 
-(ImageUploader as any).defaultProps = {
-  value: [],
-  prompt: '上传图片',
-  size: 8,
-  action: '//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do',
-  multiple: false
-}
+// (ImageUploader as any).defaultProps = {
+//   value: [],
+//   prompt: '上传图片',
+//   size: 8,
+//   action: '//order-api.tychou.com/common/private/image/uploadPictureAndThumbnail.do',
+//   multiple: false
+// }

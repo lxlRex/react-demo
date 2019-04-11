@@ -24,7 +24,7 @@ function createToast () {
   )
 }
 
-function showToast ({msg, delay = 3000, callBack}: ToastData) {
+function showToast ({msg, delay = 3000, callBack = () => {}}: ToastData) {
   if (!instance) createToast()
 
   if (instance.isShow()) {
@@ -35,7 +35,7 @@ function showToast ({msg, delay = 3000, callBack}: ToastData) {
   instance.show(msg).then(() => {
     setTimeout(() => {
       instance.hide().then(() => {
-        callBack && callBack()
+        callBack()
         queue.length && showToast(queue.shift() as ToastData)
       })
     }, delay)

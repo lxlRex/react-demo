@@ -7,15 +7,19 @@ export default class Loading extends React.Component {
     show: false
   }
 
-  isShow () {
+  constructor (props: any) {
+    super(props)
+  }
+
+  isShow = () => {
     return this.state.show
   }
 
-  show () {
+  show = () => {
     this.setState({show: true})
   }
 
-  hide () {
+  hide = () => {
     this.setState({show: false})
   }
 

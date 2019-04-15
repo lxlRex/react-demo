@@ -17,4 +17,4 @@ import { renderRoutes } from 'react-router-config'
 //   }
 // }
 
-export default ({ routes }: { routes: any }) => <>{renderRoutes(routes)}</>
+export default ({ route: {routes} }: { route: any }) => <>{renderRoutes(routes)}</>

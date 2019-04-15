@@ -5,7 +5,7 @@ import Button from '../../public/components/src/button'
 
 import { login } from '../../api/user'
 import { User } from '../../public/class'
-// import '../home.scss'
+
 // interface IState {
 //   userName: string
 //   password: string

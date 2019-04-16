@@ -21,33 +21,26 @@ export default class Mask extends React.Component<IProps> {
     this.mask = React.createRef()
   }
 
-  clickHandler () {
-    this.props.maskClick && this.props.maskClick()
-  }
-
-  touchmoveHandler (e: any) {
+  touchmoveHandler = (e: any) => {
     if (!this.props.scroll) e.preventDefault()
   }
 
   render () {
-    const { bgColor } = this.props
+    const { bgColor, maskClick = () => {}, children } = this.props
 
     return (
-      <div className={'c-mask'}
-        ref={this.mask}
-        style={{backgroundColor: bgColor}}
-        onClick={this.clickHandler.bind(this)}
-      >
-        {this.props.children}
+      <div className={'c-mask'}>
+        <div className={'c-mask__bg'} style={{backgroundColor: bgColor}} />
+        <div className={'c-mask__content'} ref={this.mask} onClick={maskClick}>{children}</div>
       </div>
     )
   }
 
   componentDidMount () {
-    this.mask.current.addEventListener('touchmove', this.touchmoveHandler.bind(this), { passive: false })
+    this.mask.current.addEventListener('touchmove', this.touchmoveHandler, { passive: false })
   }
 
   componentWillUnmount () {
-    this.mask.current.removeEventListener('touchmove', this.touchmoveHandler.bind(this))
+    this.mask.current.removeEventListener('touchmove', this.touchmoveHandler)
   }
 }

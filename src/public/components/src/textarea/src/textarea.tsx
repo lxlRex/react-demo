@@ -59,16 +59,18 @@ export default class Textarea extends React.Component<IProps, IState> {
   }
 
   render () {
+    const { value, name, maxlength, placeholder, showCount } = this.props
+
     return (
       <div className="c-textarea">
         <textarea className="c-textarea__entity" ref={this.textarea}
-          value={this.props.value}
-          name={this.props.name}
-          maxLength={this.props.maxlength}
-          placeholder={this.props.placeholder}
+          value={value}
+          name={name}
+          maxLength={maxlength}
+          placeholder={placeholder}
           onChange={this.changeHandler.bind(this)}
         />
-        { (this.props.showCount && this.props.maxlength) && <div className="c-textarea__count">{this.state.count}/{this.props.maxlength}</div> }
+        { (showCount && maxlength) && <div className="c-textarea__count">{this.state.count}/{maxlength}</div> }
       </div>
     )
   }

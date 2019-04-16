@@ -11,6 +11,7 @@ export default class Select extends React.Component<IProps> {
   }
 
   render () {
+    // const { onChange = () => {} } = this.props
     return (
       <select onChange={this.changeHandler.bind(this)}>
         { this.props.children }

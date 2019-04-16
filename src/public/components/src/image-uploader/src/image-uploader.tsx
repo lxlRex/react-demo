@@ -15,7 +15,7 @@ interface IProps {
 }
 
 interface IState {
-  innerValue: Array<string>,
+  innerValue: string[],
   uid: string
 }
 

@@ -10,13 +10,13 @@ interface Options {
 }
 
 interface IMyComponentProps  {
-  options: Array<Options>,
+  options: Options[],
   value: Array<string | number>,
   onChange (arg: Array<string | number>): void
 }
 
 interface IMyComponentState {
-  options: Array<Options>
+  options: Options[]
 }
 
 export default class Checkbox extends React.Component<IMyComponentProps, IMyComponentState> {

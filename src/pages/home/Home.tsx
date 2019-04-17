@@ -13,6 +13,7 @@ import Checker from '../../public/components/src/checker'
 import { Select, Option } from '../../public/components/src/select'
 import browser from '../../public/utils/browser'
 import Page from '../decorator/Page'
+import Progress from '../../public/components/src/progress'
 
 
 @Page({title: 'Test', backgroundColor: '#f2f3f4', needLogin: false})
@@ -113,6 +114,7 @@ export default class Home extends Component {
             })
           }
         </Select>
+        <Progress value={0.7} rotate={-90} />
       </div>
     )
   }

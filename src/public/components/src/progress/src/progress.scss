@@ -1,0 +1,25 @@
+@import '~SassMagic/src/mixins/BEM';
+
+@include b (c-progress) {
+  position: relative;
+
+  @include e (svg) {
+    width: inherit;
+    height: inherit;
+  }
+
+  @include e (circle) {
+    transition: stroke-dasharray .5s;
+  }
+
+  @include e (text) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

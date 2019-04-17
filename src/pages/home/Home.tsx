@@ -114,7 +114,9 @@ export default class Home extends Component {
             })
           }
         </Select>
-        <Progress value={0.7} rotate={-90} />
+        <Progress value={this.state.start ? 0.5 : 0.7} rotate={-90}>
+          70%
+        </Progress>
       </div>
     )
   }

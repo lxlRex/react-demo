@@ -11,10 +11,6 @@ interface IProps {
 }
 
 export default class Progress extends React.Component<IProps> {
-  state = {
-    perimeter: 0
-  }
-
   private readonly circle: React.RefObject<any>;
 
   constructor (props: any) {
@@ -37,7 +33,7 @@ export default class Progress extends React.Component<IProps> {
     const r = size / 2 - width // 半径
     const coordinate = r + width // 圆心坐标
     const perimeter = Math.PI * r * 2 // 周长
-    console.log(perimeter)
+
     const px2rem = (px: number) => `${px / 37.5}rem`
 
     return (
@@ -51,7 +47,7 @@ export default class Progress extends React.Component<IProps> {
                   strokeDashoffset={px2rem((1 - value) * perimeter)}
                   fill="none"
           >
-            <animate attributeName="stroke-dashoffset" from={px2rem(perimeter)} to={px2rem((1 - value) * perimeter)} dur="0.3s"/>
+            <animate attributeType="XML" attributeName="stroke-dashoffset" from={px2rem(perimeter)} to={px2rem((1 - value) * perimeter)} dur="0.3s"/>
           </circle>
           <circle cx={px2rem(coordinate)} cy={px2rem(coordinate)} r={px2rem(r)} stroke={defaultColor} strokeLinecap="round" strokeWidth={width} fill="none"/>
           <defs>
@@ -77,9 +73,5 @@ export default class Progress extends React.Component<IProps> {
         <div className="c-progress__text">{children}</div>
       </div>
     )
-  }
-
-  componentDidMount(): void {
-    // this.setState({perimeter: this.circle.current.getTotalLength()})
   }
 }

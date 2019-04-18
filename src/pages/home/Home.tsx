@@ -90,9 +90,6 @@ export default class Home extends Component {
   render () {
     return (
       <div className="home" style={{ paddingBottom: '200px' }}>
-        <Progress value={this.state.start ? 0.5 : 0.7}>
-          70%
-        </Progress>
         <Input name="title" showClear label="姓名姓名" placeholder="请输入姓名姓名" type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <input name="title" ref={input => { this.input = input }} type="text" value={this.state.title} onChange={this.inputChangeHandler.bind(this)}/>
         <Button onClick={this.buttonClickHandler.bind(this)}>啊阿萨德</Button>
@@ -117,6 +114,9 @@ export default class Home extends Component {
             })
           }
         </Select>
+        <Progress value={this.state.start ? 0.5 : 0.7}>
+          70%
+        </Progress>
       </div>
     )
   }

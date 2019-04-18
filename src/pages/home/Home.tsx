@@ -14,6 +14,7 @@ import { Select, Option } from '../../public/components/src/select'
 import browser from '../../public/utils/browser'
 import Page from '../decorator/Page'
 import Progress from '../../public/components/src/progress'
+import Amount from '../../public/components/src/amount'
 
 
 @Page({title: 'Test', backgroundColor: '#f2f3f4', needLogin: false})
@@ -115,7 +116,7 @@ export default class Home extends Component {
           }
         </Select>
         <Progress value={this.state.start ? 0.5 : 0.7}>
-          70%
+          <Amount value={this.state.start ? 50 : 70} />%
         </Progress>
       </div>
     )

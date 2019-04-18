@@ -1,4 +1,5 @@
 // import { LOGIN_URL } from '@DEMO/config/pages'
+import Utils from './Utils'
 
 const USER_INFO = 'user_info'
 export default class User {
@@ -22,7 +23,7 @@ export default class User {
    */
   static login (userInfo: Object) {
     localStorage.setItem(USER_INFO, JSON.stringify(userInfo))
-    Object.assign(this, userInfo)
+    Utils.mergeOwn(this, userInfo)
     return Promise.resolve(userInfo)
   }
 

@@ -30,14 +30,13 @@ export default class Progress extends React.Component<IProps> {
       width = 5,
       defaultColor = 'rgba(0, 0, 0, 0.1)',
       color = ['#FF5257', '#000', '#fff', '#09bb07'],
-      rotate = 0,
+      rotate = -90,
       children
     } = this.props
 
     const r = size / 2 - width // 半径
     const coordinate = r + width // 圆心坐标
-    // const perimeter = Math.PI * size * value // 周长
-    const perimeter = 0
+    const perimeter = Math.PI * r * 2 // 周长
     console.log(perimeter)
     const px2rem = (px: number) => `${px / 37.5}rem`
 
@@ -48,10 +47,12 @@ export default class Progress extends React.Component<IProps> {
                   cy={px2rem(coordinate)}
                   r={px2rem(r)} stroke="url(#lineStyle)"
                   strokeLinecap="round" strokeWidth={width}
-                  strokeDasharray={this.state.perimeter}
-                  strokeDashoffset={(1 - value) * this.state.perimeter}
+                  strokeDasharray={px2rem(perimeter)}
+                  strokeDashoffset={px2rem((1 - value) * perimeter)}
                   fill="none"
-          />
+          >
+            <animate attributeName="stroke-dashoffset" from={px2rem(perimeter)} to={px2rem((1 - value) * perimeter)} dur="0.3s"/>
+          </circle>
           <circle cx={px2rem(coordinate)} cy={px2rem(coordinate)} r={px2rem(r)} stroke={defaultColor} strokeLinecap="round" strokeWidth={width} fill="none"/>
           <defs>
             <linearGradient id="lineStyle" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -79,6 +80,6 @@ export default class Progress extends React.Component<IProps> {
   }
 
   componentDidMount(): void {
-    this.setState({perimeter: this.circle.current.getTotalLength()})
+    // this.setState({perimeter: this.circle.current.getTotalLength()})
   }
 }

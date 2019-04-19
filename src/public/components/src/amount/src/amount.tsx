@@ -5,48 +5,50 @@ interface IProps {
   from?: number
 }
 
-interface IState {
-  from: number,
-  to: number
-}
+export default class Amount extends React.Component<IProps> {
 
-export default class Amount extends React.Component<IProps, IState> {
-  private timer: any;
+  static defaultProps = {
+    from: 0
+  }
+
+  private timer: any
+
+  private current = 0
+
+  private readonly amount: React.RefObject<any>
 
   constructor (props: any) {
     super(props)
 
-    this.state = {
-      from: this.props.from || 0,
-      to: this.props.value
-    }
+    this.amount = React.createRef()
   }
 
-  numChange () {
-    let sub = this.state.to - this.state.from
-    if (sub !== 0) {
-      this.setState({from: sub > 0 ? this.state.from + 1 : this.state.from - 1})
-    } else {
-      this.timer && clearInterval(this.timer)
-    }
-  }
+  numChange = () => {
+    const { from = 0, value } = this.props
+    this.current = from
 
-  start () {
-    let sub = this.state.to - this.state.from
-    this.timer = setInterval(this.numChange.bind(this), 300 / Math.abs(sub))
+    this.timer = setInterval(() => {
+      let sub = value - this.current
+
+      if (sub !== 0) {
+        this.amount.current.innerHTML = sub > 0 ? ++this.current : --this.current
+      } else {
+        clearInterval(this.timer)
+      }
+    }, 1)
   }
 
   render () {
     return (
-      <span>{this.state.from}</span>
+      <span ref={this.amount} />
     )
   }
 
   componentDidMount(): void {
-    this.start()
+    this.numChange()
   }
 
-  componentWillReceiveProps(nextProps: Readonly<IProps>, nextContext: any): void {
-    this.setState({from: this.state.to, to: nextProps.value}, this.start)
+  componentWillReceiveProps(): void {
+    this.numChange()
   }
 }

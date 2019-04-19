@@ -11,6 +11,11 @@ interface IProps {
 }
 
 export default class Progress extends React.Component<IProps> {
+
+  state = {
+    percent: 0
+  }
+
   private readonly circle: React.RefObject<any>;
 
   constructor (props: any) {
@@ -21,7 +26,6 @@ export default class Progress extends React.Component<IProps> {
 
   render () {
     let {
-      value,
       size = 100,
       width = 5,
       defaultColor = 'rgba(0, 0, 0, 0.1)',
@@ -43,11 +47,12 @@ export default class Progress extends React.Component<IProps> {
                   cy={px2rem(coordinate)}
                   r={px2rem(r)} stroke="url(#lineStyle)"
                   strokeLinecap="round" strokeWidth={width}
-                  strokeDasharray={px2rem(perimeter)}
-                  strokeDashoffset={px2rem((1 - value) * perimeter)}
+                  transform={`matrix(0, -1, 1, 0, 0, ${px2rem(r)})`}
+                  strokeDasharray={`${px2rem(this.state.percent * perimeter)} ${px2rem((1 - this.state.percent) * perimeter)}`}
+                  // strokeDashoffset={px2rem((1 - value) * perimeter)}
                   fill="none"
           >
-            <animate attributeType="XML" attributeName="stroke-dashoffset" from={px2rem(perimeter)} to={px2rem((1 - value) * perimeter)} dur="0.3s"/>
+            {/*<animate attributeType="XML" attributeName="stroke-dashoffset" from={px2rem(perimeter)} to={px2rem((1 - value) * perimeter)} dur="0.3s"/>*/}
           </circle>
           <circle cx={px2rem(coordinate)} cy={px2rem(coordinate)} r={px2rem(r)} stroke={defaultColor} strokeLinecap="round" strokeWidth={width} fill="none"/>
           <defs>
@@ -73,5 +78,15 @@ export default class Progress extends React.Component<IProps> {
         <div className="c-progress__text">{children}</div>
       </div>
     )
+  }
+
+  componentDidMount(): void {
+    setTimeout(() => {
+      this.setState({percent: this.props.value})
+    }, 1)
+  }
+
+  componentWillReceiveProps(nextProps: Readonly<IProps>, nextContext: any): void {
+    this.setState({percent: nextProps.value})
   }
 }

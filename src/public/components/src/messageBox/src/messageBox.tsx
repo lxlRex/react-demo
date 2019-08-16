@@ -49,7 +49,10 @@ export default class MessageBox extends React.Component<IProps> {
           <div className="message-box">
             <div className="message-box__msg">{this.state.msg}</div>
             <div className="message-box__btnBox">
-              { this.props.type === Types.confirm && <div className="message-box__btn message-box__btn--cancel" onClick={this.cancelHandler.bind(this)}>{this.state.cancelBtn}</div> }
+              {
+                this.props.type === Types.confirm &&
+                <div className="message-box__btn message-box__btn--cancel" onClick={this.cancelHandler.bind(this)}>{this.state.cancelBtn}</div>
+              }
               <div className="message-box__btn" onClick={this.confirmHandler.bind(this)}>{this.state.confirmBtn}</div>
             </div>
           </div>

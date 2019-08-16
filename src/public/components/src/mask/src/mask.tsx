@@ -22,15 +22,6 @@ export default class Mask extends React.Component<IProps> {
     this.mask = React.createRef()
   }
 
-  // touchmoveHandler = (e: any) => {
-  //   if (!this.props.scroll) {
-  //     console.log(e.target)
-  //     // if () {
-  //     //   e.preventDefault()
-  //     // }
-  //   }
-  // }
-
   render () {
     const { bgColor, maskClick = () => {}, children } = this.props
 
@@ -44,11 +35,9 @@ export default class Mask extends React.Component<IProps> {
 
   componentDidMount () {
     lock(this.mask.current)
-    // this.mask.current.addEventListener('touchmove', this.touchmoveHandler, { passive: false })
   }
 
   componentWillUnmount () {
     unlock(this.mask.current)
-    // this.mask.current.removeEventListener('touchmove', this.touchmoveHandler)
   }
 }

@@ -20,7 +20,7 @@ interface IMyComponentState {
 }
 
 export default class Checkbox extends React.Component<IMyComponentProps, IMyComponentState> {
-  constructor (props: any) {
+  constructor (props: IMyComponentProps) {
     super(props)
     this.state = {
       options: props.options.map((e: Options) => ({...e, checked: props.value.indexOf(e.value) > -1}))

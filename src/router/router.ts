@@ -1,5 +1,4 @@
 import AsyncComponent from './utils/AsyncComponent'
-import getSubRouter from './utils/getSubRouter'
 import RouterContainer from './utils/router-container'
 import TabNav from '../pages/components/common/tabNav'
 
@@ -9,20 +8,17 @@ import indexRouter from './subRouter/indexRouter'
 export default [
   {
     path: '/',
-    name: 'Test',
     exact: true,
     component: AsyncComponent(() => import('../pages/home/Home'))
   },
   {
     path: '/index',
-    name: 'Index',
     component: TabNav,
-    routes: getSubRouter(indexRouter, '/index')
+    routes: indexRouter
   },
   {
     path: '/user',
-    name: 'User',
     component: RouterContainer,
-    routes: getSubRouter(userRouter, '/user')
+    routes: userRouter
   }
 ]

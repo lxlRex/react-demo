@@ -1,5 +1,5 @@
 import React from 'react'
-import { renderRoutes } from 'react-router-config'
+import { renderRoutes, RouteConfig } from 'react-router-config'
 
 // interface IProps {
 //   route: any
@@ -17,4 +17,4 @@ import { renderRoutes } from 'react-router-config'
 //   }
 // }
 
-export default ({ route: {routes} }: { route: any }) => <>{renderRoutes(routes)}</>
+export default ({ route: {routes} }: { route: { routes: RouteConfig[] } }) => <>{renderRoutes(routes)}</>

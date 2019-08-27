@@ -13,7 +13,8 @@
     "no-unused-expression": false,
     "arrow-parens": false,
     "no-magic-numbers": false,
-    "no-redundant-jsdoc": false
+    "no-redundant-jsdoc": false,
+    "no-implicit-dependencies": ["optional", ["src"]]
   },
   "linterOptions": {
     "exclude": [

@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
+import { renderRoutes, RouteConfig } from 'react-router-config'
 import routes from './router'
 
 const supportsHistory = 'pushState' in window.history
@@ -12,6 +12,6 @@ const getConfirmation = (message: string, callback: Function) => {
 
 export default () => (
   <BrowserRouter forceRefresh={!supportsHistory} getUserConfirmation={getConfirmation}>
-    { renderRoutes(routes as any) }
+    { renderRoutes(routes as RouteConfig[]) }
   </BrowserRouter>
 )

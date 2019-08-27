@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-
 import { Tab, TabItem } from '../../../public/components/src/tab'
-import { renderRoutes } from 'react-router-config'
+import RouterContainer from 'src/router/utils/router-container'
 
 const tabList = [
   {
@@ -31,11 +30,9 @@ export default class TabNav extends Component<IProps, {}> {
   }
 
   render() {
-    const { route: {routes} } = this.props
-
     return (
       <div>
-        {renderRoutes(routes)}
+        <RouterContainer {...this.props} />
         <Tab>
           {
             tabList.map(({name, path}) => {

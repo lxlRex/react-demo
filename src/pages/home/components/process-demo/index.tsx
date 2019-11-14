@@ -54,7 +54,7 @@ export default class extends Component<{}, IState> {
             {
               bars.map((e, index) => {
                 return (
-                  <option value={index}>
+                  <option value={index} key={index}>
                     #process{index + 1}
                   </option>
                 )

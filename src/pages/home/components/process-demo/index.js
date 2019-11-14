@@ -34,7 +34,7 @@ export default class extends Component {
             }),
             React.createElement("div", { className: 'button-box' },
                 React.createElement("select", { name: "process", className: 'process-select', onChange: this.selectChangeHandler }, bars.map((e, index) => {
-                    return (React.createElement("option", { value: index },
+                    return (React.createElement("option", { value: index, key: index },
                         "#process",
                         index + 1));
                 })),

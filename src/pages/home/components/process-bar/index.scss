@@ -1,0 +1,24 @@
+@import '~SassMagic/src/mixins/BEM';
+@import '~SassMagic/src/mixins/box-center';
+
+@include b (process-bar) {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 10px;
+
+  @include e (content) {
+    height: 100%;
+    transition: all .3s;
+    background: #b2d7e6;
+  }
+
+  @include e (text) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include box-center(center, center);
+  }
+}

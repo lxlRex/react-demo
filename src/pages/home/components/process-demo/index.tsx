@@ -18,10 +18,18 @@ export default class extends Component<{}, IState> {
     selected: 0
   }
 
+  /**
+   * @desc change event
+   * @param e
+   */
   selectChangeHandler = (e: any): void => {
     this.setState({selected: e.target.value})
   }
 
+  /**
+   * @desc click event
+   * @param e
+   */
   buttonClickHander = (e: number) => {
     let { bars, selected, limit } = this.state
 
@@ -38,7 +46,7 @@ export default class extends Component<{}, IState> {
 
     return (
       <div className={'process-demo'}>
-        <div>Process Bars Demo</div>
+        <h2>Process Bars Demo</h2>
         {
           bars.map((e, index) =>{
             return (
@@ -61,7 +69,6 @@ export default class extends Component<{}, IState> {
               })
             }
           </select>
-
           {
             buttons.map((e, index) => {
               return (<div key={index}><Button onClick={() => this.buttonClickHander(e)}>{e}</Button></div>)

@@ -11,7 +11,7 @@ export default class extends Component<IProps> {
     const { value } = this.props
 
     let styles = {
-        width: `${value}%`,
+        width: `${value > 100 ? 100 : value}%`,
         ...(value > 100 && {
           background: 'red'
         })

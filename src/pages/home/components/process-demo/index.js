@@ -11,9 +11,17 @@ export default class extends Component {
             limit: 140,
             selected: 0
         };
+        /**
+         * @desc change event
+         * @param e
+         */
         this.selectChangeHandler = (e) => {
             this.setState({ selected: e.target.value });
         };
+        /**
+         * @desc click event
+         * @param e
+         */
         this.buttonClickHander = (e) => {
             let { bars, selected, limit } = this.state;
             bars[selected] = bars[selected] + e;
@@ -27,7 +35,7 @@ export default class extends Component {
     render() {
         let { buttons, bars, limit } = this.state;
         return (React.createElement("div", { className: 'process-demo' },
-            React.createElement("div", null, "Process Bars Demo"),
+            React.createElement("h2", null, "Process Bars Demo"),
             bars.map((e, index) => {
                 return (React.createElement("div", { key: index },
                     React.createElement(ProcessBar, { value: e, limit: limit })));

@@ -10,10 +10,18 @@ export default class extends Component<IProps> {
   render () {
     const { value } = this.props
 
+    let styles = {
+        width: `${value}%`,
+        ...(value > 100 && {
+          background: 'red'
+        })
+    }
+
+
     return (
       <div className={'process-bar'}>
         <span className={'process-bar__text'}>{value}%</span>
-        <div className={'process-bar__content'} style={{width: `${value}%`}} />
+        <div className={'process-bar__content'} style={styles} />
       </div>
     )
   }

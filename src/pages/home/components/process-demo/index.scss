@@ -1,9 +1,14 @@
 @import '~SassMagic/src/mixins/BEM';
-@import '~SassMagic/src/mixins/box-center';
 
 @include b (process-demo) {
+  width: 375px;
 
   .button-box {
+    
+    .process-select {
+      float: left;
+      margin-right: 20px;
+    }
 
     .c-button {
       float: left;

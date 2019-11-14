@@ -2,7 +2,7 @@ html {
   font-size: 10vw;
 }
 
-@media screen and(min-width: 750px){
+@media screen and (min-width: 750px){
   html {
     font-size: 75px;/*no*/
   }

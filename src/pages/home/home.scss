@@ -1,0 +1,6 @@
+@import '~SassMagic/src/mixins/box-center';
+
+.home {
+  height: 100%;
+  @include box-center(center, center);
+}

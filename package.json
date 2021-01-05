@@ -14,7 +14,7 @@
     "SassMagic": "https://github.com/W3cplus/SassMagic.git",
     "antd": "^3.13.5",
     "autosize": "^4.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "element-react": "^1.4.32",
     "es6-promise": "^4.2.6",
